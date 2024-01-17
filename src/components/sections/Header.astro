@@ -1,0 +1,59 @@
+---
+
+const { className } = Astro.props;
+
+// Import Icons
+import { Icon } from "astro-icon/components";
+
+
+
+---
+
+<!-- Header Section -->
+<header class=`header ${className}`>
+
+    <nav class="header__nav">
+        <a>Home</a>
+        <a>Projects</a>
+        <a>Blog</a>
+        <a>Shop</a>
+    </nav>
+
+    <div class="header__socials">
+        <a><Icon name="youtube" size={25}/></a>
+        <a><Icon name="github" size={25} /></a>
+    </div>
+
+</header>
+
+<!-- Style Header Section -->
+<style>
+    .header {
+
+        /* Layout */
+        display: flex;
+        flex-direction: row;
+        
+        /** Box Model **/
+        padding: 1rem 0rem 1rem;
+    }
+
+    .header__nav {
+        /* Layout  */
+        flex: 1;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 1.5rem;
+    }
+
+    .header__socials {
+        /** Layout **/
+        flex: 1;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        gap: 1rem;
+    }
+
+</style>

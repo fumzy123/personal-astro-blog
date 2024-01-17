@@ -1,0 +1,42 @@
+---
+
+// Import the CSS Styling for the BaseLayout
+import '../styles/global.css'
+import '../styles/utils.css'
+
+
+// Import Sections
+import Header from "../components/sections/Header.astro";
+
+
+
+---
+
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Fumez</title>
+	</head>
+
+	<body>
+
+		<Header className="container"></Header>
+		<slot />
+
+		<!-- <section class="container">
+			<slot />
+		</section> -->
+
+	</body>
+
+</html>
+
+<!-- <style is:global>
+	
+</style> -->
