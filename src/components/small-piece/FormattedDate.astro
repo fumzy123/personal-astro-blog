@@ -1,0 +1,16 @@
+---
+
+// Get the properties that will be used to set this component
+const { date } = Astro.props;
+---
+<time datetime={date.toISOString()}>
+	
+	{
+		date.toLocaleDateString('en-us', {
+			year: 'numeric',
+			month: 'short',
+			day: 'numeric',
+		})
+	}
+
+</time>

@@ -85,12 +85,11 @@ button {
 }
 
 /** Style H1 **/
-/* h1 {
-    
-    color: #8e4a49ff;
-    font-size: 4rem;
+h1 {
+  letter-spacing: 2px;
 }
 
+/* 
 body.dark {
     background-color: #17181cff;
     color: #f3dfbfff;

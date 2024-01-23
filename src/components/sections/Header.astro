@@ -5,6 +5,8 @@ const { className } = Astro.props;
 // Import Icons
 import { Icon } from "astro-icon/components";
 
+// Import Smaller Component pieces
+import HeaderLink from "../small-piece/HeaderLink.astro";
 
 
 ---
@@ -13,15 +15,15 @@ import { Icon } from "astro-icon/components";
 <header class=`header ${className}`>
 
     <nav class="header__nav">
-        <a>Home</a>
-        <a>Projects</a>
-        <a>Blog</a>
-        <a>Shop</a>
+        <HeaderLink href="/">Home</HeaderLink>
+        <HeaderLink href="/projects/">Projects</HeaderLink>
+        <HeaderLink href="/blogs/">Blog</HeaderLink>
+        <HeaderLink href="/shop/">Shop</HeaderLink>
     </nav>
 
     <div class="header__socials">
-        <a><Icon name="youtube" size={25}/></a>
-        <a><Icon name="github" size={25} /></a>
+        <a class="header__social-media" href="http://www.youtube.com/@FumezCreates" target="_blank"><Icon name="youtube" size={25}/></a>
+        <a class="header__social-media" href="https://github.com/fumzy123" target="_blank"><Icon name="github" size={25} /></a>
     </div>
 
 </header>
@@ -36,6 +38,9 @@ import { Icon } from "astro-icon/components";
         
         /** Box Model **/
         padding: 1rem 0rem 1rem;
+
+        /* Typography  */
+        /* color: white; */
     }
 
     .header__nav {
@@ -47,6 +52,8 @@ import { Icon } from "astro-icon/components";
         gap: 1.5rem;
     }
 
+    
+
     .header__socials {
         /** Layout **/
         flex: 1;
@@ -54,6 +61,15 @@ import { Icon } from "astro-icon/components";
         flex-direction: row;
         justify-content: flex-end;
         gap: 1rem;
+    }
+
+    .header__social-media {
+        color: white;
+        text-decoration: none;
+    }
+
+    .header__social-media:hover {
+        color: #f3dfbfff;
     }
 
 </style>

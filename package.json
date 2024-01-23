@@ -10,8 +10,9 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/mdx": "^2.0.5",
     "@iconify-json/mdi": "^1.1.64",
-    "astro": "^4.1.1",
+    "astro": "^4.2.0",
     "astro-icon": "^1.0.2"
   }
 }

@@ -1,0 +1,33 @@
+---
+// Import BaseLayout. I have styling applied to my 
+// BaseLayout that I want to carry across every page on my site
+import FormattedDate from "../components/small-piece/FormattedDate.astro";
+import BaseLayout from "./BaseLayout.astro"
+
+// Get the Frontmatter for your Markdown file
+const { frontmatter } = Astro.props;
+---
+
+<BaseLayout>
+    <section class="blog-post">
+
+        <h1 class="blog-post__title">{frontmatter.title}</h1>
+        <FormattedDate date={frontmatter.pubDate}/>
+        
+
+        <div class="blog-post__content">
+            <slot/>
+        </div>
+       
+    </section>
+</BaseLayout>
+
+<style>
+    .blog-post__title {
+        font-size: 2.5rem;
+    }
+
+    .blog-post__content {
+        margin: 2rem 0 2rem;
+    }
+</style>
