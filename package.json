@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "fumez-blog",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -11,8 +11,14 @@
   },
   "dependencies": {
     "@astrojs/mdx": "^2.0.5",
+    "@astrojs/react": "^3.0.9",
     "@iconify-json/mdi": "^1.1.64",
+    "@types/react": "^18.2.48",
+    "@types/react-dom": "^18.2.18",
     "astro": "^4.2.0",
-    "astro-icon": "^1.0.2"
+    "astro-icon": "^1.0.2",
+    "framer-motion": "^10.18.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }

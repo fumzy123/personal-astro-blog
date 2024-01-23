@@ -1,0 +1,26 @@
+.headerlink {
+  position: relative;
+  display: inline-block;
+}
+
+.headerlink__title {
+  color: white;
+  text-decoration: none;
+}
+
+.headerlink__underline {
+  /** Background **/
+  background: yellow;
+
+  /** Box Model **/
+  width: 100%;
+  height: 1px;
+
+  /**Display**/
+  /* display: inline-block; */
+
+  /** Position **/
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}

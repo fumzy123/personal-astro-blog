@@ -1,5 +1,10 @@
 ---
 
+// Impore motion library
+import { motion } from "framer-motion"
+
+
+
 // Get the href property that was passed into the component
 const { href } = Astro.props;
 
@@ -18,7 +23,7 @@ viewer of my website which viewer is currently active. I don't need to
 rewrite code -->
 
 
-<a class:list={['header__nav-item', { header__activelink : isActive }]}href={href}><slot/></a>
+<a class:list={['header__nav-item', { header__activelink : isActive }]} href={href}> <slot/> </a>
 
 <style>
     .header__nav-item {
