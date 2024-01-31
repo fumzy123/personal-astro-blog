@@ -1,24 +1,19 @@
-import React from 'react';
+// import React from 'react';
 import '../../styles/component-styling/HeaderLink.css';
-import { motion } from 'framer-motion';
 
-function HeaderLink() {
+function HeaderLink({ children, href, currentPath }) {
+  console.log(currentPath);
   return (
-    <motion.div className="headerlink" whileHover="hover">
-      <a className="headerlink__title" href="/pages">
-        Interactive Home
+    <div className="headerlink">
+      <a className="headerlink__title" href={href}>
+        {children}
       </a>
-      <motion.span
-        className="headerlink__underline"
-        variants={{
-          initial: { scaleX: 0 },
-          hover: { scaleX: 1 },
-        }}
-        transition={{ duration: 0.3 }}
-      >
-        hyyyys
-      </motion.span>
-    </motion.div>
+      <span
+        className={`headerlink__underline ${
+          currentPath === href ? 'headerlink__active' : ''
+        }`}
+      ></span>
+    </div>
   );
 }
 export default HeaderLink;

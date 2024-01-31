@@ -1,16 +1,16 @@
 ---
 
-const { className } = Astro.props;
 
 // Import Icons
 import { Icon } from "astro-icon/components";
 
 // Import Smaller Component pieces
-import HeaderLink from "../small-piece/HeaderLink.astro";
+// import HeaderLink from "../small-piece/HeaderLink.astro";
+import HeaderLink from "../react/HeaderLink.jsx"
 
 
-
-
+const { className } = Astro.props;
+const currentPath = Astro.url.pathname;
 
 ---
 
@@ -18,10 +18,10 @@ import HeaderLink from "../small-piece/HeaderLink.astro";
 <header class=`header ${className}`>
 
     <nav class="header__nav">
-        <HeaderLink href="/">Home</HeaderLink>
-        <HeaderLink href="/projects/">Projects</HeaderLink>
-        <HeaderLink href="/blogs/">Blog</HeaderLink>
-        <HeaderLink href="/shop/">Shop</HeaderLink>
+        <HeaderLink client:load href="/" currentPath={currentPath}>Home</HeaderLink>
+        <HeaderLink client:load href="/projects/" currentPath={currentPath}>Projects</HeaderLink>
+        <HeaderLink client:load href="/blogs/" currentPath={currentPath}>Blog</HeaderLink>
+        <HeaderLink client:load href="/shop/" currentPath={currentPath}>Shop</HeaderLink>
     </nav>
 
     <div class="header__socials">

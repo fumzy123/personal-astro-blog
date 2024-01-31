@@ -9,18 +9,34 @@
 }
 
 .headerlink__underline {
-  /** Background **/
-  background: yellow;
+  /* Background */
+  background-color: white;
 
-  /** Box Model **/
-  width: 100%;
-  height: 1px;
-
-  /**Display**/
-  /* display: inline-block; */
-
-  /** Position **/
+  /* Position */
   position: absolute;
-  left: 0;
-  bottom: 0;
+  left: 0px;
+  bottom: 0px;
+
+  /* Box Model */
+  height: 1px;
+  width: 0%;
+
+  /* Transition */
+  transition-property: width;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+  transition-delay: 0.1s;
+}
+
+/* Select the header__underline element only if it is directly underneath the 
+  headerLink__title element when it is hovered.
+*/
+.headerlink__title:hover
+  + .headerlink__underline:not(.headerlink__active) {
+  width: 100%;
+}
+
+.headerlink__active {
+  background-color: #f3dfbfff;
+  width: 100%;
 }
