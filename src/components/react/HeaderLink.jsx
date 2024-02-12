@@ -2,7 +2,7 @@
 import '../../styles/component-styling/HeaderLink.css';
 
 function HeaderLink({ children, href, currentPath }) {
-  console.log(currentPath);
+  // console.log(currentPath);
   return (
     <div className="headerlink">
       <a className="headerlink__title" href={href}>
