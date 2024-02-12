@@ -25,7 +25,7 @@
   transition-property: width;
   transition-duration: 0.3s;
   transition-timing-function: ease;
-  transition-delay: 0.1s;
+  transition-delay: 0.05s;
 }
 
 /* Select the header__underline element only if it is directly underneath the 
