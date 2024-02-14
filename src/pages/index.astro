@@ -5,8 +5,32 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 <BaseLayout>
   
   <section class='hero'>
-      <h1 class='hero__name'>Fume Uvwie</h1>
-      <p class='hero__occupation'>
+
+    <div class="hero__text">
+
+      <h1 class='hero__name'>Hello,</h1>
+      <h1 class='hero__name'>I'm Fume</h1>
+
+      <p class="hero__desc">
+        I'm a Web Developer and Motion Designer on a mission to
+        build visually engaging, interactive, and immersive digital
+        experience on the web through a Combination of Code, Design, 
+        and Animation. I love learning, consistently iterating and
+        experimenting with new technologies. You can check out some
+        of my projects and let me know if you like to work together.
+      </p>
+      <button class="hero__btn">Reach Out</button>
+
+    </div>
+
+    <div class="hero__profile">
+
+      <div class="hero__b1"></div>
+      <div class="hero__b2"></div>
+
+    </div>
+
+      <!-- <p class='hero__occupation'>
         Web/Game Developer | Motion Designer | Content Creator.
       </p>
       <p>
@@ -18,7 +42,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         some of my projects and let me know if you like to work
         together.
       </p>
-      <button class='hero__btn'>Reach out</button>
+      <button class='hero__btn'>Reach out</button> -->
   </section>
 
   <!-- <section class="what-i-do">
@@ -74,12 +98,39 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 <style>
   /* -------- Hero Section ------------ */
   .hero {
+    /* Layout */
+    display: flex;
+    flex-direction: row;
+    gap: 5rem;
   }
+
   .hero__name {
     /** Typography */
     color: #f3dfbfff;
     font-size: 4rem;
   }
+
+  .hero__desc{
+    text-align: justify;
+  }
+
+  .hero__b1{
+    /* Box Model */
+    width: 400px;
+    height: 400px;
+    border: 2px solid red;
+
+    /* Background */
+    background-color: #f3dfbfff;
+  }
+
+  .hero__b2{
+    width: 400px;
+    height: 200px;
+    background-color: #8e4a49ff;
+  }
+
+  
   .hero__occupation {
     /** Typography **/
     font-size: 1.5rem;
@@ -100,6 +151,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     margin-top: 1rem;
     border-radius: 8px;
   }
+
+
+  .hero__profile {
+    margin: 3em;
+  }
+
+
 
 /* --------- Education Section------------- */
 .education {
