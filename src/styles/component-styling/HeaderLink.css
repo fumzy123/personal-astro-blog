@@ -4,22 +4,29 @@
 }
 
 .headerlink__title {
+  /* Typography */
+  font-size: var(--size-xs);
+  font-weight: 600;
   color: white;
   text-decoration: none;
+  letter-spacing: -0.05em;
 }
 
-.headerlink__underline {
+/* Pseudo Element */
+.headerlink__title::after {
+  content: '';
+
+  /* Box Model */
+  width: 0;
+  height: 1px;
+
   /* Background */
   background-color: white;
 
   /* Position */
   position: absolute;
-  left: 0px;
-  bottom: 0px;
-
-  /* Box Model */
-  height: 1px;
-  width: 0%;
+  bottom: 0;
+  left: 0;
 
   /* Transition */
   transition-property: width;
@@ -28,15 +35,10 @@
   transition-delay: 0.05s;
 }
 
-/* Select the header__underline element only if it is directly underneath the 
-  headerLink__title element when it is hovered.
-*/
-.headerlink__title:hover
-  + .headerlink__underline:not(.headerlink__active) {
+.headerlink__title:not(.headerlink__active):hover::after {
   width: 100%;
 }
 
-.headerlink__active {
-  background-color: #f3dfbfff;
+.headerlink__active::after {
   width: 100%;
 }

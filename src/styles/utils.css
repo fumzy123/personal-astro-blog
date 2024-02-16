@@ -21,13 +21,13 @@
 .container {
   width: 100%;
   margin-inline: auto;
-  /* padding-inline: 0.5rem; */
+  padding-inline: 0.5rem;
   border: 2px solid rgba(255, 0, 0, 0.091);
 }
 
 /* MOBILE FIRST PRE-DEFINED MEDIA QUERIES 
-		being used to modify our container utility class
-*/
+          being used to modify our container utility class
+  */
 
 /* xs */
 @media (min-width: 475px) {
@@ -43,14 +43,14 @@
   }
 }
 
-/* md */
+/* md (Tablet) */
 @media (min-width: 768px) {
   .container {
     max-width: 768px;
   }
 }
 
-/* lg */
+/* lg (Laptop) */
 @media (min-width: 1024px) {
   .container {
     max-width: 1024px;
@@ -59,14 +59,14 @@
 
 /* xl */
 /* @media (min-width: 1280px) {
-    .container{
-        max-width: 1280px;
-    }
-} */
+      .container{
+          max-width: 1280px;
+      }
+  } */
 
 /* 2xl */
 /* @media (min-width: 1536px) {
-    .container{
-        max-width: 1536px;
-    }
-} */
+      .container{
+          max-width: 1536px;
+      }
+  } */

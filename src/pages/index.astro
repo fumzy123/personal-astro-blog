@@ -1,107 +1,107 @@
 ---
+// Import Layouts
 import BaseLayout from '../layouts/BaseLayout.astro';
+import ContainerUtilityLayout from '../layouts/ContainerUtilityLayout.astro';
+
+// Import Image components and images
+import { Image, Picture } from 'astro:assets';
+import computerImage from '../../public/computer-gif-30fps.gif';
+// import computerImage from '../assets/images/computer-gif-30fps.gif';
+import firstImage from '../assets/images/lady-with-bowl.jpg';
+import secondImage from '../assets/images/street-art.jpg';
 ---
 
+
+
 <BaseLayout>
-  
+
   <section class='hero'>
 
-    <div class="hero__text">
+    <ContainerUtilityLayout sectionContainer="hero__container">
 
-      <h1 class='hero__name'>Hello,</h1>
-      <h1 class='hero__name'>I'm Fume</h1>
+      <div class="hero__intro">
 
-      <p class="hero__desc">
-        I'm a Web Developer and Motion Designer on a mission to
-        build visually engaging, interactive, and immersive digital
-        experience on the web through a Combination of Code, Design, 
-        and Animation. I love learning, consistently iterating and
-        experimenting with new technologies. You can check out some
-        of my projects and let me know if you like to work together.
-      </p>
-      <button class="hero__btn">Reach Out</button>
+        <div>
+          <h1 class='hero__name'>Hello,</h1>
+          <h1 class='hero__name'>I'm Fume</h1>
+        </div>
+        
+        <p class="hero__desc">
+          I'm a Web Developer and Motion Designer on a mission to
+          build visually engaging, interactive, and immersive digital
+          experience on the web through a Combination of Code, Design, 
+          and Animation. I love learning, consistently iterating and
+          experimenting with new technologies. You can check out some
+          of my projects and let me know if you like to work together.
+        </p>
 
-    </div>
+        <button class="hero__btn">Reach Out</button>
 
-    <div class="hero__profile">
+      </div>
 
-      <div class="hero__b1"></div>
-      <div class="hero__b2"></div>
+      <div class="hero__profile">
 
-    </div>
+        <!-- <div class="hero__b1"></div>
+        <div class="hero__b2"></div> -->
+        <!-- <Picture src={computerImage} formats={['gif']} alt="computer"/> -->
+        <img src={computerImage.src} class="hero__img"/>
 
-      <!-- <p class='hero__occupation'>
-        Web/Game Developer | Motion Designer | Content Creator.
-      </p>
-      <p>
-        Hello👋, I'm a Creative Developer on a mission to build
-        visually engaging, interactive, and immersive digital
-        experiences on the web through the combination of Code,
-        Design, and Animation. I love learning, consistently iterating
-        and experimenting with new technologies. You can check out
-        some of my projects and let me know if you like to work
-        together.
-      </p>
-      <button class='hero__btn'>Reach out</button> -->
+      </div>
+
+    </ContainerUtilityLayout>
+
   </section>
 
-  <!-- <section class="what-i-do">
-    <h2>What I do</h2>
-    
-    <div>
-      <h3>Web Development</h3>
-      <p>I bring Figma designs to life.</p>
-    </div>
 
-    <div>
-      <h3>Motion Design</h3>
-      <p>I Visualize ideas and brands</p>
-    </div>
+  <section class="services">
+    <ContainerUtilityLayout>
+      <h2 class="services__title">What I do</h2>
 
-    <div></div>
+      <div class="services__web-dev-container">
 
-  </section> -->
+        <div class="services__web-dev-intro">
+          <h3>Web Development</h3>
+          <p>
+            I bring your Figma design to life
+            using.
+          </p>
+        </div>
 
-  <!-- <section class='education'>
-    <h2>Education</h2>
-    <div>
-      <p>Memorial University of Newfoundland</p>
-      <em>Bachelor of Science in Computer Science</em>
-      <p>GPA: 3.6</p>
-    </div>
-  </section> -->
+        <div class="services__web-dev-img-container">
+          <Image class="first__image" src={firstImage} alt=""/>
+          <Image class="second__image" src={secondImage} alt=""/>
+          <!-- <img src="../assets/images/street-art.jpg" alt="" width="300"/> -->
+        </div>
 
-  <!-- <section class="technical-skills">
-    <h2>Technical Skills</h2>
+      </div>
 
-    <div class="technical-skills__code">
-      <h3>Code</h3>
-      <p>HTML/CSS</p>
-      <p>React</p>
-      <p>Astro</p>
-    </div>
+      <div></div>
+    </ContainerUtilityLayout>
+  </section>
 
-    <div class="technical-skills__design">
-      <h3>Design</h3>
-      <p>Davinci Resolve</p>
-      <p>React</p>
-      <p>Astro</p>
-    </div>
 
-    
-  </section> -->
-
-  <br>
   
 </BaseLayout>
 
 <style>
-  /* -------- Hero Section ------------ */
-  .hero {
+ 
+  .hero__container {
     /* Layout */
     display: flex;
     flex-direction: row;
     gap: 5rem;
+
+    /* Box Model */
+    margin-top: 2rem;
+  }
+
+  /* --- Hero Intro --- */
+
+  .hero__intro{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
   }
 
   .hero__name {
@@ -112,32 +112,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .hero__desc{
     text-align: justify;
+    /* margin-top: 2em;
+    margin-bottom: 2em; */
   }
 
-  .hero__b1{
-    /* Box Model */
-    width: 400px;
-    height: 400px;
-    border: 2px solid red;
-
-    /* Background */
-    background-color: #f3dfbfff;
-  }
-
-  .hero__b2{
-    width: 400px;
-    height: 200px;
-    background-color: #8e4a49ff;
-  }
-
-  
-  .hero__occupation {
-    /** Typography **/
-    font-size: 1.5rem;
-
-    /* Box Model */
-    margin: 1rem 0rem 1rem;
-  }
   .hero__btn {
     /* Background */
     background: #f3dfbfff;
@@ -147,26 +125,128 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     font-weight: 700;
 
     /* Box Model */
+    width: 9.375em;
     padding: 0.5rem;
     margin-top: 1rem;
     border-radius: 8px;
+
+    /* Layout */
+    display: inline-block;
+    
   }
 
+  /* --- Hero Profile --- */
 
   .hero__profile {
-    margin: 3em;
+    /* Layout */
+    flex: 1;
+
+    display: flex;
+    align-items: center;
+  }
+
+  .hero__img{
+
+    /* Box Model */
+    border: 2px solid #F3DFBF;
+    border-radius: 25px;
+
+    /*  */
+    
   }
 
 
-
-/* --------- Education Section------------- */
-.education {
+/* --------- Service Section------------- */
+.services {
+  /* Box Model */
+  height: 500px;
   margin-top: 2rem;
+
+  /* Typography */
+  /* color: #17181C ; */
+
+  /* Background */
+  /* background-color: #F3DFBF; */
 }
 
-/* --------- Education Section------------- */
-.technical-skills{
-  margin-top: 2rem;
+.services__title{
+  text-align: center;
 }
+
+.services__web-dev-container{
+  /* Layout */
+  display: flex;
+  /* justify-content: space-between; */
+  /* border: 2px solid blue; */
+
+  /* Box Model */
+  /* height: 300px; */
+
+}
+
+.services__web-dev-intro{
+  /* Layout */
+  flex: 1;
+
+}
+
+/* --- Images --- */
+.services__web-dev-img-container {
+  /* Layout */
+  flex: 1;
+
+  display: flex;
+  justify-content: flex-end;
+
+  /* Box Model */
+  height: 300px;
+
+  /* Position */
+  position: relative;
+
+}
+
+
+
+
+.first__image{
+  /* Box Model */
+  width: 300px;
+  height: 85%;
+
+  /* Image */
+  object-fit: cover;
+  object-position: top;
+  /* aspect-ratio: 16 / 9; */
+
+  /* Position */
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: -1;
+
+  
+}
+.second__image {
+  /* Box Model */
+  width: 300px;
+  height: 85%;
+
+  /* Image */
+  object-fit: cover;
+  object-position: center;
+
+  /* Position */
+  position: absolute;
+  bottom: 0;
+  
+}
+
+
+/* -------------------- Adding Responsiveness ------------------------ */
+
+
+
+
 
 </style>
