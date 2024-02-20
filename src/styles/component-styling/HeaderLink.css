@@ -12,33 +12,39 @@
   letter-spacing: -0.05em;
 }
 
-/* Pseudo Element */
 .headerlink__title::after {
   content: '';
-
-  /* Box Model */
-  width: 0;
-  height: 1px;
 
   /* Background */
   background-color: white;
 
+  /* Box Model */
+  width: 0%;
+  height: 1px;
+
   /* Position */
   position: absolute;
-  bottom: 0;
   left: 0;
+  bottom: 0;
 
-  /* Transition */
+  /* Tranisition */
   transition-property: width;
   transition-duration: 0.3s;
   transition-timing-function: ease;
   transition-delay: 0.05s;
 }
 
-.headerlink__title:not(.headerlink__active):hover::after {
+.headerlink__title:hover::after {
   width: 100%;
 }
 
 .headerlink__active::after {
   width: 100%;
+}
+
+/* lg (Laptop) */
+@media (min-width: 1024px) {
+  .headerlink__title {
+    font-size: var(--size-sm);
+  }
 }

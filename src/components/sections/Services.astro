@@ -1,0 +1,123 @@
+---
+// Import Image components and images
+import { Image, Picture } from 'astro:assets';
+
+// Import Images
+import firstImage from '../assets/images/lady-with-bowl.jpg';
+import secondImage from '../assets/images/street-art.jpg';
+---
+
+
+<section class="services">
+    
+      <h2 class="services__title">What I do</h2>
+
+      <div class="services__web-dev-container">
+
+        <div class="services__web-dev-intro">
+          <h3>Web Development</h3>
+          <p>
+            I bring your Figma design to life
+            using.
+          </p>
+        </div>
+
+        <div class="services__web-dev-img-container">
+          <Image class="first__image" src={firstImage} alt=""/>
+          <Image class="second__image" src={secondImage} alt=""/>
+          <!-- <img src="../assets/images/street-art.jpg" alt="" width="300"/> -->
+        </div>
+
+      </div>
+
+      <div></div>
+    
+  </section>
+
+  <style>
+    /* --------- Service Section------------- */
+.services {
+  /* Box Model */
+  height: 500px;
+  margin-top: 2rem;
+
+  /* Typography */
+  /* color: #17181C ; */
+
+  /* Background */
+  /* background-color: #F3DFBF; */
+}
+
+.services__title{
+  text-align: center;
+}
+
+.services__web-dev-container{
+  /* Layout */
+  display: flex;
+  /* justify-content: space-between; */
+  /* border: 2px solid blue; */
+
+  /* Box Model */
+  /* height: 300px; */
+
+}
+
+.services__web-dev-intro{
+  /* Layout */
+  flex: 1;
+
+}
+
+/* --- Images --- */
+.services__web-dev-img-container {
+  /* Layout */
+  flex: 1;
+
+  display: flex;
+  justify-content: flex-end;
+
+  /* Box Model */
+  height: 300px;
+
+  /* Position */
+  position: relative;
+
+}
+
+
+
+
+.first__image{
+  /* Box Model */
+  width: 300px;
+  height: 85%;
+
+  /* Image */
+  object-fit: cover;
+  object-position: top;
+  /* aspect-ratio: 16 / 9; */
+
+  /* Position */
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: -1;
+
+  
+}
+.second__image {
+  /* Box Model */
+  width: 300px;
+  height: 85%;
+
+  /* Image */
+  object-fit: cover;
+  object-position: center;
+
+  /* Position */
+  position: absolute;
+  bottom: 0;
+  
+}
+  </style>

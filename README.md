@@ -91,6 +91,12 @@ flex: 1;
       <Icon name="mdi:account" />
       ```
 
+2.  Plan out the Typography sizes for your website.
+
+    ```c
+
+    ```
+
 <!-- # Astro Starter Kit: Basics
 
 ```sh
