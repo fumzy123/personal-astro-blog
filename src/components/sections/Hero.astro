@@ -24,6 +24,13 @@
 <style>
   .hero {
     text-align: center;
+
+    /* Layout */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
   }
 
   .hero__img {
@@ -38,12 +45,18 @@
     color: #f3dfbfff;
 
     /* Box Model */
-    margin-top: 2rem;
+    /* margin-top: 2rem; */
   }
 
   .hero__desc {
+    /* Box Model */
+    max-width: 60ch;
+
+    /* Typography */
+    font-size: var(--size-sm);
+
     /* padding: 1.5em; */
-    text-align: justify;
+    /* text-align: justify; */
 
     /* Box model */
     margin: 1em 0;
@@ -55,6 +68,7 @@
 
     /** Typography */
     color: #17181cff;
+    font-size: var(--size-sm);
     font-weight: 700;
 
     /* Box Model */
