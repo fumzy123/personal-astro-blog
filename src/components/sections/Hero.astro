@@ -6,23 +6,27 @@
   <img src="/computer-gif-30fps.gif" class="hero__img" />
 
   <div class="hero__intro">
-    <h1 class="hero__name">Hello,<br />I'm Fume</h1>
+    <h1 class="hero__title">Hello,<br />I'm Fume 🙂</h1>
 
     <p class="hero__desc">
-      I'm a Web Developer and Motion Designer on a mission to build
-      visually engaging, interactive, and immersive digital experience
-      on the web through a Combination of Code, Design, and Animation.
-      I love learning, consistently iterating and experimenting with
-      new technologies. You can check out some of my projects and let
-      me know if you like to work together.
+      I'm a <strong>Web Developer</strong> and <strong
+        >Motion Designer</strong
+      > on a mission to build visually engaging, interactive, and immersive
+      digital experiences on the web through a combination of <strong
+        >Code</strong
+      >, <strong>Design</strong>, and <strong>Animation</strong>. I
+      love learning, consistently iterating and experimenting with new
+      technologies. You can check out some of my projects and let me
+      know if you like to work together.
     </p>
 
-    <button class="hero__btn">Reach Out</button>
+    <button class="hero__btn btn">Reach Out</button>
   </div>
 </section>
 
 <style>
   .hero {
+    /* Typography */
     text-align: center;
 
     /* Layout */
@@ -35,51 +39,97 @@
 
   .hero__img {
     /* Box Model for Image */
-    border: 2px solid #f3dfbfff;
+    width: 18.75rem;
+    border: 2px solid var(--clr-dutch-white);
     border-radius: 20px;
   }
 
-  .hero__name {
+  .hero__title {
     /* Typography  */
-    /* text-align: left; */
-    color: #f3dfbfff;
-
-    /* Box Model */
-    /* margin-top: 2rem; */
+    color: var(--clr-dutch-white);
+    font-size: var(--size-4xl);
+    letter-spacing: -0.05em;
+    line-height: 0.9;
   }
 
   .hero__desc {
     /* Box Model */
-    max-width: 60ch;
+    max-width: 60ch; /* Max width is super useful because it allows for responsiveness
+    It means the html element can reduce and increase in size but it cannot go beyond the maximum width.*/
+    margin: 1em 0;
 
     /* Typography */
     font-size: var(--size-sm);
-
-    /* padding: 1.5em; */
-    /* text-align: justify; */
-
-    /* Box model */
-    margin: 1em 0;
+    color: var(--clr-slate600);
   }
 
   .hero__btn {
-    /* Background */
-    background: #f3dfbfff;
-
     /** Typography */
-    color: #17181cff;
     font-size: var(--size-sm);
-    font-weight: 700;
-
-    /* Box Model */
-    width: 9.375em;
-    padding: 0.5rem;
-    /* margin-top: 1rem; */
-    border-radius: 8px;
-
-    /* Layout */
-    /* display: inline-block; */
   }
 
   /* -------------------- Adding Responsiveness ------------------------ */
+  /* MOBILE FIRST PRE-DEFINED MEDIA QUERIES */
+  /* xs */
+  @media (min-width: 475px) {
+    .hero {
+      gap: 1.5rem;
+    }
+    .hero__img {
+      width: 28rem;
+    }
+    .hero__title {
+      font-size: var(--size-5xl);
+    }
+    .hero__desc {
+      font-size: var(--size-base);
+    }
+    .hero__btn {
+      font-size: var(--size-base);
+    }
+  }
+
+  /* sm */
+  /* @media (min-width: 640px) {} */
+
+  /* md */
+  /* @media (min-width: 768px) {} */
+
+  /* lg */
+  @media (min-width: 1024px) {
+    .hero {
+      flex-direction: row-reverse;
+      text-align: left;
+    }
+
+    .hero__img {
+      flex: 1;
+      width: 30rem;
+    }
+
+    .hero__intro {
+      flex: 1;
+    }
+
+    .hero__title {
+      text-align: left;
+      font-size: var(--size-7xl);
+    }
+
+    .hero__desc {
+      margin-top: 2rem;
+      text-align: justify;
+      font-size: var(--size-lg);
+    }
+
+    .hero__btn {
+      font-size: var(--size-lg);
+    }
+  }
+
+  /* xl */
+  /* @media (min-width: 1280px) {} */
+
+  /* 2xl */
+  /* @media (min-width: 1536px) {} */
 </style>

@@ -70,3 +70,31 @@
           max-width: 1536px;
       }
   } */
+
+/* -------------- Other Utilities ------------------ */
+.btn {
+  /* Layout */
+  display: inline-block;
+
+  /* Typography */
+  color: var(--clr-eerie-black);
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: -0.05em;
+
+  /* Background */
+  background: var(--clr-dutch-white);
+
+  /* Box Model */
+  padding: 0.5em 1em;
+  border-radius: 6px;
+  box-shadow:
+    0 10px 20px rgba(225, 29, 72, 0.5),
+    0 6px 6px rgba(225, 29, 72, 0.5),
+    0 0 100px -10px var(--clr-rose);
+
+  /* Transition */
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
+}

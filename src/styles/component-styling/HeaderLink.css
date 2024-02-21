@@ -42,7 +42,7 @@
   width: 100%;
 }
 
-/* lg (Laptop) */
+/* lg */
 @media (min-width: 1024px) {
   .headerlink__title {
     font-size: var(--size-sm);

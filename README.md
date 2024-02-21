@@ -91,11 +91,15 @@ flex: 1;
       <Icon name="mdi:account" />
       ```
 
-2.  Plan out the Typography sizes for your website.
+2.  Plan out the Typography sizes and Colors for your website.
+
+    - The Hero section demonstrates an interesting way to use colors: There is a visual heirarchy happening in the text. The majority of the text closely matches the color of the background. The key text are bold and have a dark color. The button however has a brighter color to really draw your attention and stand out. A good accent is warm and filled with bright energy. It is not cold and dark.
 
     ```c
 
     ```
+
+3.  Images within a container will not respond to a text-align of center if the CSS reset has forced them to behave like block level elements.
 
 <!-- # Astro Starter Kit: Basics
 
