@@ -7,99 +7,107 @@ import firstImage from '../../assets/images/lady-with-bowl.jpg';
 import secondImage from '../../assets/images/street-art.jpg';
 ---
 
-<section class="services container">
+<section class="services container section">
+  <!-- Title -->
   <h2 class="services__title">What I do</h2>
 
-  <div class="services__web-dev-container">
-    <div class="services__web-dev-intro">
-      <h3>Web Development</h3>
-      <p>I bring your Figma design to life using.</p>
+  <!-- Web Development -->
+  <div class="services__skill-container">
+    <div class="services__skill">
+      <h3 class="services__skill-name">Web Development</h3>
+      <p class="services__skill-description">
+        I bring your Figma design to life using custom code. Reponsive
+        Websites, CMS Integration, and 3D Development, at your
+        service.
+      </p>
     </div>
 
-    <div class="services__web-dev-img-container">
+    <div class="services__skill-image">
       <Image class="first__image" src={firstImage} alt="" />
-      <Image class="second__image" src={secondImage} alt="" />
-      <!-- <img src="../assets/images/street-art.jpg" alt="" width="300"/> -->
     </div>
   </div>
 
-  <div></div>
+  <!-- Motion Design  -->
+  <div class="services__skill-container">
+    <div class="services__skill">
+      <h3 class="services__skill-name">Motion Design</h3>
+      <p class="services__skill-description">
+        Transform static ideas into captivating animations. Whether
+        it’s eye-catching logos, engaging explainer videos, or
+        seamless transitions, I’ll breathe life into your brand
+      </p>
+    </div>
+
+    <div class="services__skill-image">
+      <Image class="first__image" src={firstImage} alt="" />
+    </div>
+  </div>
 </section>
 
 <style>
-  /* --------- Service Section------------- */
-  .services {
-    /* Box Model */
-    height: 500px;
+  .services__title {
+    /* Typography */
+    text-align: center;
+    color: var(--clr-dutch-white);
+    font-size: var(--size-3xl);
+  }
+
+  .services__skill-container {
+    padding: 1rem;
+    border-top: 2px solid var(--clr-cordovan);
     margin-top: 2rem;
 
+    background-color: var(--clr-eerie-black);
+
+    position: sticky;
+    top: 50px;
+  }
+  .services__skill-name {
+    color: var(--clr-cordovan);
+  }
+
+  .services__skill-description {
+    padding: 0.5rem 0;
+
     /* Typography */
-    color: color(--clr-slate600);
-
-    /* Background */
-    /* background-color: #F3DFBF; */
-  }
-
-  .services__title {
-    text-align: center;
-    color: color(--clr-cordovan);
-  }
-
-  .services__web-dev-container {
-    /* Layout */
-    display: flex;
-
+    font-size: var(--size-sm);
     color: var(--clr-slate600);
-  }
-
-  .services__web-dev-intro {
-    /* Layout */
-    flex: 1;
-    color: var(--clr-slate600);
-  }
-
-  /* --- Images --- */
-  .services__web-dev-img-container {
-    /* Layout */
-    flex: 1;
-
-    display: flex;
-    justify-content: flex-end;
-
-    /* Box Model */
-    height: 300px;
-
-    /* Position */
-    position: relative;
   }
 
   .first__image {
-    /* Box Model */
     width: 300px;
-    height: 85%;
-
-    /* Image */
-    object-fit: cover;
-    object-position: top;
-    /* aspect-ratio: 16 / 9; */
-
-    /* Position */
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    z-index: -1;
+    height: 300px;
+    object-fit: contain;
+    /* aspect-ratio: 1 / 1; */
   }
-  .second__image {
-    /* Box Model */
-    width: 300px;
-    height: 85%;
 
-    /* Image */
-    object-fit: cover;
-    object-position: center;
+  /* MOBILE FIRST PRE-DEFINED MEDIA QUERIES */
+  /* xs */
+  @media (min-width: 475px) {
+    .services__title {
+      font-size: var(--size-4xl);
+    }
 
-    /* Position */
-    position: absolute;
-    bottom: 0;
+    .services__skill-name {
+      font-size: var(--size-2xl);
+    }
+    .services__skill-description {
+      font-size: var(--size-base);
+    }
   }
+
+  /* sm */
+  /* @media (min-width: 640px) {} */
+
+  /* md */
+  /* @media (min-width: 768px) {} */
+
+  /* lg */
+  /* @media (min-width: 1024px) {} */
+
+  /* xl */
+  /* @media (min-width: 1280px) {} */
+
+  /* 2xl */
+  /* @media (min-width: 1536px) {} */
 </style>
