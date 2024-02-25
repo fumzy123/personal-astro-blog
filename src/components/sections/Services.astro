@@ -1,0 +1,158 @@
+---
+// Import Image components and images
+import { Image, Picture } from 'astro:assets';
+
+// Import Images
+import firstImage from '../../assets/images/lady-with-bowl.jpg';
+import secondImage from '../../assets/images/street-art.jpg';
+---
+
+<section class="services container section">
+  <!-- Title -->
+  <h2 class="services__title">What I do</h2>
+
+  <!-- Web Development -->
+  <div class="services__skill-container">
+    <div class="services__skill">
+      <h3 class="services__skill-name">Web Development</h3>
+      <p class="services__skill-description">
+        I bring your Figma design to life using custom code. Reponsive
+        Websites, CMS Integration, and 3D Development, at your
+        service.
+      </p>
+    </div>
+
+    <div class="services__skill-image">
+      <Image class="first__image" src={firstImage} alt="" />
+      <div class="services__keyword-container">
+        <p>Responsive Websites</p>
+        <p>CMS Integration</p>
+        <p>3D Development</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Motion Design  -->
+  <div class="services__skill-container">
+    <div class="services__skill">
+      <h3 class="services__skill-name">Motion Design</h3>
+      <p class="services__skill-description">
+        Transform static ideas into captivating animations. Whether
+        it’s eye-catching logos, engaging explainer videos, or
+        seamless transitions, I’ll breathe life into your brand
+      </p>
+    </div>
+
+    <div class="services__skill-image">
+      <Image class="first__image" src={firstImage} alt="" />
+    </div>
+  </div>
+</section>
+
+<style>
+  .services__title {
+    /* Typography */
+    text-align: center;
+    color: var(--clr-dutch-white);
+    font-size: var(--size-3xl);
+  }
+
+  .services__skill-container {
+    padding: 1rem;
+    border-top: 2px solid var(--clr-cordovan);
+    margin-top: 2rem;
+
+    background-color: var(--clr-eerie-black);
+
+    position: sticky;
+    top: 50px;
+  }
+  .services__skill-name {
+    color: var(--clr-cordovan);
+  }
+
+  .services__skill-description {
+    margin: 0.5rem 0;
+
+    /* Typography */
+    font-size: var(--size-sm);
+    color: var(--clr-slate600);
+  }
+
+  .services__skill-image {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .first__image {
+    width: 250px;
+    height: 300px;
+    object-fit: contain;
+    object-position: left;
+    /* aspect-ratio: 1 / 1; */
+  }
+
+  .services__keyword-container {
+    /* Box Model */
+    margin-top: 2rem;
+
+    /* Layout */
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    /* Typography */
+    color: #8499b1;
+    font-size: var(--size-xl);
+    font-weight: bold;
+  }
+
+  /* MOBILE FIRST PRE-DEFINED MEDIA QUERIES */
+  /* xs */
+  @media (min-width: 475px) {
+    .services__title {
+      font-size: var(--size-4xl);
+    }
+
+    .services__skill-name {
+      font-size: var(--size-2xl);
+    }
+    .services__skill-description {
+      font-size: var(--size-base);
+    }
+
+    .services__keyword-container {
+      /* Typography */
+      font-size: var(--size-2xl);
+    }
+  }
+
+  /* sm */
+  @media (min-width: 640px) {
+    .services__skill-image {
+      flex-direction: row;
+      justify-content: space-between;
+      /* flex: 1; */
+    }
+
+    .first__image {
+      flex: 1;
+      text-align: left;
+    }
+    .services__keyword-container {
+      flex: 1;
+    }
+  }
+
+  /* md */
+  /* @media (min-width: 768px) {} */
+
+  /* lg */
+  /* @media (min-width: 1024px) {} */
+
+  /* xl */
+  /* @media (min-width: 1280px) {} */
+
+  /* 2xl */
+  /* @media (min-width: 1536px) {} */
+</style>

@@ -1,16 +1,113 @@
 ---
 
 ---
-<div class="skill">
 
-  <h3 class="skill__title">Skills / Interests:</h3>
+<section class="skill container section">
+  <h2 class="skill__title">My ToolBox</h2>
+
+  <div>
+    <h3 class="skill__name">Front-End Development</h3>
+    <div class="skill__tool-container">
+      <ul class="skill__ul">
+        <li class="skill__tool">HTML/CSS</li>
+        <li class="skill__tool">JavaScript</li>
+        <li class="skill__tool">React</li>
+        <li class="skill__tool">Astro</li>
+      </ul>
+      <ul class="skill__ul">
+        <li class="skill__tool">React-Three-Fiber</li>
+        <li class="skill__tool">ThreeJS</li>
+        <li class="skill__tool">GLSL</li>
+        <li class="skill__tool">C++</li>
+      </ul>
+    </div>
+  </div>
+
+  <div>
+    <h3 class="skill__name">Back-End Development</h3>
+    <div class="skill__tool-container">
+      <ul class="skill__ul">
+        <li class="skill__tool">NodeJS</li>
+        <li class="skill__tool">AppWrite</li>
+      </ul>
+    </div>
+  </div>
+
+  <div>
+    <h3 class="skill__name">Motion Design</h3>
+    <div class="skill__tool-container">
+      <ul class="skill__ul">
+        <li class="skill__tool">Davinci Resolve</li>
+        <li class="skill__tool">Cavalry</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+  .skill__title {
+    /* Typography */
+    text-align: center;
+    font-size: var(--size-3xl);
+    color: var(--clr-dutch-white);
+  }
+
+  .skill__name {
+    margin: 1rem 0 0.5rem;
+    color: var(--clr-cordovan);
+  }
+
+  .skill__tool-container {
+    display: flex;
+  }
+
+  .skill__ul {
+    /* Typography */
+    font-size: var(--size-sm);
+    color: var(--clr-slate600);
+    flex: 1;
+    list-style-type: square;
+    padding-left: 1em;
+  }
+
+  /* MOBILE FIRST PRE-DEFINED MEDIA QUERIES */
+  /* xs */
+  @media (min-width: 475px) {
+    .skill__title {
+      font-size: var(--size-4xl);
+    }
+    .skill__name {
+      font-size: var(--size-2xl);
+    }
+    .skill__tool {
+      font-size: var(--size-base);
+    }
+  }
+
+  /* sm */
+  /* @media (min-width: 640px) {} */
+
+  /* md */
+  /* @media (min-width: 768px) {} */
+
+  /* lg */
+  /* @media (min-width: 1024px) {} */
+
+  /* xl */
+  /* @media (min-width: 1280px) {} */
+
+  /* 2xl */
+  /* @media (min-width: 1536px) {} */
+</style>
+
+<!-- <section class="skill container section">
+  <h2 class="skill__title">Skills/Technologies:</h2>
 
   <table class="skill__table">
-
     <colgroup>
-      <col class="skill__table--code"/>
-      <col class="skill__table--design"/>
-      <col class="skill__table--animation"/>
+      <col class="skill__table--code" />
+      <col class="skill__table--design" />
+      <col class="skill__table--animation" />
     </colgroup>
 
     <thead>
@@ -22,7 +119,6 @@
     </thead>
 
     <tbody>
-      
       <tr>
         <td>HTML/CSS</td>
         <td>Figma</td>
@@ -41,11 +137,10 @@
         <td>Cavalry</td>
       </tr>
 
-      
       <tr>
         <td>ThreeJS</td>
       </tr>
-      
+
       <tr>
         <td>GLSL</td>
       </tr>
@@ -57,32 +152,22 @@
       <tr>
         <td>C++</td>
       </tr>
-
     </tbody>
   </table>
-</div>
+</section>
 
 <style>
-  .skill{
-    margin-top: 2rem;
+  .skill__title {
+    text-align: center;
+    color: var(--clr-dutch-white);
   }
+
   .skill__table {
+    /* Box Model */
+    width: 100%;
+    margin-top: 1rem;
 
-      /* Box Model */
-      width: 100%;
-      margin-top: 1rem;
-
-      /* Typography  */
-      text-align:left;
-      
+    /* Typography  */
+    text-align: left;
   }
-  /* .skill__table--code{
-    background-color: blue;
-  }
-  .skill__table--design {
-    background-color: red;
-  }
-  .skill__table--animation {
-    background-color: green;
-  } */
-</style>
+</style> -->

@@ -4,39 +4,47 @@
 }
 
 .headerlink__title {
+  /* Typography */
+  font-size: var(--size-xs);
+  font-weight: 600;
   color: white;
   text-decoration: none;
+  letter-spacing: -0.05em;
 }
 
-.headerlink__underline {
+.headerlink__title::after {
+  content: '';
+
   /* Background */
   background-color: white;
 
+  /* Box Model */
+  width: 0%;
+  height: 1px;
+
   /* Position */
   position: absolute;
-  left: 0px;
-  bottom: 0px;
+  left: 0;
+  bottom: 0;
 
-  /* Box Model */
-  height: 1px;
-  width: 0%;
-
-  /* Transition */
+  /* Tranisition */
   transition-property: width;
   transition-duration: 0.3s;
   transition-timing-function: ease;
-  transition-delay: 0.1s;
+  transition-delay: 0.05s;
 }
 
-/* Select the header__underline element only if it is directly underneath the 
-  headerLink__title element when it is hovered.
-*/
-.headerlink__title:hover
-  + .headerlink__underline:not(.headerlink__active) {
+.headerlink__title:hover::after {
   width: 100%;
 }
 
-.headerlink__active {
-  background-color: #f3dfbfff;
+.headerlink__active::after {
   width: 100%;
+}
+
+/* lg */
+@media (min-width: 1024px) {
+  .headerlink__title {
+    font-size: var(--size-sm);
+  }
 }

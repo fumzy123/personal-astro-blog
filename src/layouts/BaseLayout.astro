@@ -1,8 +1,8 @@
 ---
 
 // Import the CSS Styling for the BaseLayout
-import '../styles/global.css'
-import '../styles/utils.css'
+import '../styles/global.css';
+import '../styles/utils.css';
 
 
 // Import Sections
@@ -25,7 +25,14 @@ import Footer from '../components/sections/Footer.astro';
 	</head>
 
 	<body>
-		<div class="container">
+
+		<Header/>
+		<slot/>
+		<!-- <Footer/> -->
+
+
+		
+		<!-- <div class="container">
 
 			<section class="header">
 				<Header></Header>
@@ -38,7 +45,7 @@ import Footer from '../components/sections/Footer.astro';
 			<section class="footer">
 				<Footer></Footer>
 			</section>
-		</div>
+		</div> -->
 		
 
 		<!-- <section class="container">

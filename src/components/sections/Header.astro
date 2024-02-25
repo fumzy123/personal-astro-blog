@@ -1,79 +1,136 @@
 ---
+// Import Layout
+// import ContainerUtilityLayout from '../../layouts/ContainerUtilityLayout.astro';
 
+// Import CSS
+// import '../../styles/utils.css';
 
 // Import Icons
-import { Icon } from "astro-icon/components";
+import { Icon } from 'astro-icon/components';
 
 // Import Smaller Component pieces
-// import HeaderLink from "../small-piece/HeaderLink.astro";
-import HeaderLink from "../react/HeaderLink.jsx"
-
+import HeaderLink from '../react/HeaderLink.jsx';
 
 const { className } = Astro.props;
 const currentPath = Astro.url.pathname;
-
 ---
 
 <!-- Header Section -->
-<header class=`header ${className}`>
-    <!-- <h3 class='header__logo'>FUMEZ</h3> -->
+<header class=`header container`>
+  <p class="header__logo">FUMEZ</p>
 
-    <nav class="header__nav">
-        <HeaderLink client:load href="/" currentPath={currentPath}>Home</HeaderLink>
-        <HeaderLink client:load href="/projects/" currentPath={currentPath}>Projects</HeaderLink>
-        <HeaderLink client:load href="/blogs/" currentPath={currentPath}>Blog</HeaderLink>
-        <HeaderLink client:load href="/shop/" currentPath={currentPath}>Shop</HeaderLink>
-    </nav>
+  <nav class="header__menu">
+    <HeaderLink client:load href="/" currentPath={currentPath}>
+      Home
+    </HeaderLink>
+    <HeaderLink
+      client:load
+      href="/projects/"
+      currentPath={currentPath}
+    >
+      Projects
+    </HeaderLink>
+    <HeaderLink client:load href="/blogs/" currentPath={currentPath}>
+      Blog
+    </HeaderLink>
+    <HeaderLink client:load href="/shop/" currentPath={currentPath}>
+      Shop
+    </HeaderLink>
+  </nav>
 
-    <div class="header__socials">
-        <a class="header__social-media" href="http://www.youtube.com/@FumezCreates" target="_blank"><Icon name="youtube" size={25}/></a>
-        <a class="header__social-media" href="https://github.com/fumzy123" target="_blank"><Icon name="github" size={25} /></a>
-    </div>
+  <!-- Embed the `menu-icon` icon from `@iconify-json/mdi` -->
+  <button class="header__menu-icon"><Icon name="mdi:menu" /></button>
 
+  <!-- <div class="header__socials">
+        <a class="header__social-media" href="http://www.youtube.com/@FumezCreates" target="_blank"></a>
+        <a class="header__social-media" href="https://github.com/fumzy123" target="_blank"></a>
+    </div> -->
 </header>
 
 <!-- Style Header Section -->
 <style>
-    .header {
+  .header {
+    /* Layout */
+    display: flex;
+    flex-direction: row;
 
-        /* Layout */
-        display: flex;
-        flex-direction: row;
-        
-        /** Box Model **/
-        padding: 1rem 0rem 1rem;
+    /** Box Model **/
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
 
-        /* Typography  */
-        /* color: white; */
+  .header__logo {
+    flex: 1;
+  }
+
+  .header__menu {
+    display: none;
+  }
+
+  .header__menu-icon {
+    /* Layout */
+    /* flex: 1; */
+
+    /* Typography  */
+    /* font-size: 1rem; */
+
+    width:;
+  }
+
+  /*  */
+
+  .header__socials {
+    /** Layout **/
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 1rem;
+  }
+
+  .header__social-media {
+    color: white;
+    text-decoration: none;
+  }
+
+  .header__social-media:hover {
+    color: #f3dfbfff;
+  }
+
+  /* MOBILE FIRST PRE-DEFINED MEDIA QUERIES */
+  /* xs */
+  /* @media (min-width: 475px) {} */
+
+  /* sm */
+  /* @media (min-width: 640px) {} */
+
+  /* md */
+  @media (min-width: 768px) {
+    .header__menu {
+      /* Layout  */
+      flex: 1;
+
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 2em;
+
+      /* Box Model */
+      padding: 0;
     }
 
-    .header__nav {
-        /* Layout  */
-        flex: 1;
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-        gap: 1.5rem;
+    .header__menu-icon {
+      display: none;
     }
+  }
 
-    
+  /* lg */
+  /* @media (min-width: 1024px) {
+  } */
 
-    .header__socials {
-        /** Layout **/
-        flex: 1;
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-end;
-        gap: 1rem;
-    }
+  /* xl */
+  /* @media (min-width: 1280px) {} */
 
-    .header__social-media {
-        color: white;
-        text-decoration: none;
-    }
-
-    .header__social-media:hover {
-        color: #f3dfbfff;
-    }
-
+  /* 2xl */
+  /* @media (min-width: 1536px) {} */
 </style>

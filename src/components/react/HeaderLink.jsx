@@ -2,17 +2,18 @@
 import '../../styles/component-styling/HeaderLink.css';
 
 function HeaderLink({ children, href, currentPath }) {
-  // console.log(currentPath);
+  // console.log(` The current Path is: ${currentPath}`);
+
   return (
     <div className="headerlink">
-      <a className="headerlink__title" href={href}>
-        {children}
-      </a>
-      <span
-        className={`headerlink__underline ${
+      <a
+        className={`headerlink__title ${
           currentPath === href ? 'headerlink__active' : ''
         }`}
-      ></span>
+        href={href}
+      >
+        {children}
+      </a>
     </div>
   );
 }

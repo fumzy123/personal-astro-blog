@@ -1,54 +1,17 @@
 ---
+// Import Layouts
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+// Import Components
+import Hero from '../components/sections/Hero.astro';
+import Services from '../components/sections/Services.astro';
+import Skills from '../components/Skills.astro';
+import Footer from '../components/sections/Footer.astro';
 ---
 
 <BaseLayout>
-  <section class='hero'>
-      <h1 class='hero__name'>Fume Uvwie</h1>
-      <p class='hero__occupation'>
-        Web/Game Developer | Motion Designer | Content Creator.
-      </p>
-      <p>
-        Hello👋, I'm a Creative Developer on a mission to build
-        visually engaging, interactive, and immersive digital
-        experiences on the web through the combination of Code,
-        Design, and Animation. I love learning, consistently iterating
-        and experimenting with new technologies. You can check out
-        some of my projects and let me know if you like to work
-        together.
-      </p>
-      <button class='hero__btn'>Reach out</button>
-  </section>
-  <br>
-  
+  <Hero />
+  <Services />
+  <Skills />
+  <Footer />
 </BaseLayout>
-
-<style>
-  .hero {
-  }
-  .hero__name {
-    /** Typography */
-    color: #f3dfbfff;
-    font-size: 4rem;
-  }
-  .hero__occupation {
-    /** Typography **/
-    font-size: 1.5rem;
-
-    /* Box Model */
-    margin: 1rem 0rem 1rem;
-  }
-  .hero__btn {
-    /* Background */
-    background: #f3dfbfff;
-
-    /** Typography */
-    color: #17181cff;
-    font-weight: 700;
-
-    /* Box Model */
-    padding: 0.5rem;
-    margin-top: 1rem;
-    border-radius: 8px;
-  }
-</style>

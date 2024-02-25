@@ -1,9 +1,35 @@
 /** Globally Accessible CSS Variables **/
 :root {
-  --eerie-black: #17181cff;
-  --dutch-white: #f3dfbfff;
-  --steel-blue: #2d82b7ff;
-  --cordovan: #8e4a49ff;
+  /* Colors */
+  /* Dominant */
+  --clr-eerie-black: #17181cff;
+
+  /* Complimentary */
+  --clr-slate600: #475569;
+  --clr-slate400: #94a3b8;
+  --clr-shade-dutch-white: rgb(121, 111, 95);
+
+  /* Accent */
+  --clr-dutch-white: #f3dfbfff;
+  --clr-cordovan: #8e4a49ff;
+  --clr-steel-blue: #2d82b7ff;
+
+  /* sizes */
+  --size-xxs: 0.5rem;
+  --size-xs: 0.75rem;
+  --size-sm: 0.875rem;
+  --size-base: 1rem;
+  --size-lg: 1.125rem;
+  --size-xl: 1.25rem;
+  --size-2xl: 1.5rem;
+  --size-3xl: 1.875rem;
+  --size-4xl: 2.25rem;
+  --size-5xl: 3rem;
+  --size-6xl: 3.75rem;
+  --size-7xl: 4.5rem;
+  --size-8xl: 6rem;
+  --size-9xl: 8rem;
+  --size-10xl: 10rem;
 }
 
 /******* CSS RESET ***** */
@@ -38,7 +64,7 @@ html {
 /* Define a Universal Typography for your body */
 body {
   /* Background */
-  background: #17181cff;
+  background: var(--clr-eerie-black);
 
   /* Typography  */
   /* color: #f3dfbfff; */
@@ -89,12 +115,7 @@ h1 {
   letter-spacing: 2px;
 }
 
-/* 
-body.dark {
-    background-color: #17181cff;
-    color: #f3dfbfff;
-} */
-
-/* .dark .nav-links a {
-    color: #f3dfbfff; 
-} */
+/* Strong */
+strong {
+  color: var(--clr-cordovan);
+}

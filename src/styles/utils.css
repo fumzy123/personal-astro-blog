@@ -21,13 +21,13 @@
 .container {
   width: 100%;
   margin-inline: auto;
-  /* padding-inline: 0.5rem; */
-  border: 2px solid rgba(255, 0, 0, 0.091);
+  padding-inline: 1rem;
+  /* border: 2px solid rgba(255, 0, 0, 0.091); */
 }
 
 /* MOBILE FIRST PRE-DEFINED MEDIA QUERIES 
-		being used to modify our container utility class
-*/
+          being used to modify our container utility class
+  */
 
 /* xs */
 @media (min-width: 475px) {
@@ -43,14 +43,14 @@
   }
 }
 
-/* md */
+/* md (Tablet) */
 @media (min-width: 768px) {
   .container {
     max-width: 768px;
   }
 }
 
-/* lg */
+/* lg (Laptop) */
 @media (min-width: 1024px) {
   .container {
     max-width: 1024px;
@@ -59,14 +59,47 @@
 
 /* xl */
 /* @media (min-width: 1280px) {
-    .container{
-        max-width: 1280px;
-    }
-} */
+      .container{
+          max-width: 1280px;
+      }
+  } */
 
 /* 2xl */
 /* @media (min-width: 1536px) {
-    .container{
-        max-width: 1536px;
-    }
-} */
+      .container{
+          max-width: 1536px;
+      }
+  } */
+
+/* -------------- Other Utilities ------------------ */
+
+.section {
+  margin-top: 5rem;
+}
+
+.btn {
+  /* Layout */
+  display: inline-block;
+
+  /* Typography */
+  color: var(--clr-eerie-black);
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: -0.05em;
+
+  /* Background */
+  background: var(--clr-dutch-white);
+
+  /* Box Model */
+  padding: 0.5em 1em;
+  border-radius: 6px;
+  box-shadow:
+    0 10px 20px rgba(225, 29, 72, 0.5),
+    0 6px 6px rgba(225, 29, 72, 0.5),
+    0 0 100px -10px var(--clr-rose);
+
+  /* Transition */
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
+}
