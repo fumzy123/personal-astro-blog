@@ -33,18 +33,23 @@ import secondImage from '../../assets/images/street-art.jpg';
   </div>
 
   <!-- Motion Design  -->
-  <div class="services__skill-container">
+  <div class="services__skill-container test">
     <div class="services__skill">
       <h3 class="services__skill-name">Motion Design</h3>
       <p class="services__skill-description">
-        Transform static ideas into captivating animations. Whether
-        it’s eye-catching logos, engaging explainer videos, or
-        seamless transitions, I’ll breathe life into your brand
+        I transform static ideas into captivating animations. From
+        engaging explainer videos, or seamless transitions, I’ll
+        breathe life into your brand
       </p>
     </div>
 
     <div class="services__skill-image">
       <Image class="first__image" src={firstImage} alt="" />
+      <div class="services__keyword-container">
+        <p>Graphic Design</p>
+        <p>Animation</p>
+        <p>Sound Design</p>
+      </div>
     </div>
   </div>
 </section>
@@ -66,6 +71,10 @@ import secondImage from '../../assets/images/street-art.jpg';
 
     position: sticky;
     top: 50px;
+  }
+
+  .test {
+    top: 110px;
   }
   .services__skill-name {
     color: var(--clr-cordovan);
