@@ -4,7 +4,10 @@ import { Image, Picture } from 'astro:assets';
 
 // Import Images
 import firstImage from '../../assets/images/lady-with-bowl.jpg';
-import secondImage from '../../assets/images/street-art.jpg';
+// import cmsImage from '../../assets/images/street-art.jpg';
+import responsiveWebsiteImage from '../../assets/images/responsive-website.png';
+import cmsImage from '../../assets/images/cms.png';
+import threeDdevelopmentImage from '../../assets/images/3d-development.png';
 ---
 
 <section class="services container section">
@@ -23,11 +26,25 @@ import secondImage from '../../assets/images/street-art.jpg';
     </div>
 
     <div class="services__skill-image">
-      <Image class="first__image" src={firstImage} alt="" />
+      <div class="keyword-img-container">
+        <Image
+          class="keyword-img responsiveWebsiteImage"
+          src={responsiveWebsiteImage}
+          alt=""
+        />
+
+        <Image class="keyword-img cmsImage" src={cmsImage} alt="" />
+
+        <Image
+          class="keyword-img threeDdevelopmentImage"
+          src={threeDdevelopmentImage}
+          alt=""
+        />
+      </div>
       <div class="services__keyword-container">
-        <p>Responsive Websites</p>
-        <p>CMS Integration</p>
-        <p>3D Development</p>
+        <button class="web-dev-keyword">Responsive Websites</button>
+        <button class="web-dev-keyword">CMS Integration</button>
+        <button class="web-dev-keyword">3D Development</button>
       </div>
     </div>
   </div>
@@ -88,19 +105,82 @@ import secondImage from '../../assets/images/street-art.jpg';
     color: var(--clr-slate600);
   }
 
+  /* -------------- KeyWord Images ----------------------- */
   .services__skill-image {
+    /* Box Model */
+    border: 2px solid green;
+
+    /* Layout */
     display: flex;
     flex-direction: column;
   }
 
-  .first__image {
-    width: 250px;
-    height: 300px;
-    object-fit: contain;
-    object-position: left;
-    /* aspect-ratio: 1 / 1; */
+  .keyword-img-container {
+    /* Box Model */
+    border: 10px solid peru;
+    height: 500px;
+
+    /* Position */
+    position: relative;
+    /* Layout */
+    display: grid;
+    grid-template-rows: 50px 50px 50px;
   }
 
+  .keyword-img {
+    width: 300px;
+    height: 300px;
+
+    object-fit: cover;
+  }
+
+  .responsiveWebsiteImage {
+    /* Transform */
+    transform: scale(1);
+
+    /* Position */
+    z-index: 3;
+  }
+
+  .cmsImage {
+    transform: scale(0.95);
+    z-index: 2;
+  }
+
+  .threeDdevelopmentImage {
+    transform: scale(0.9);
+
+    z-index: 1;
+  }
+
+  .first__image {
+    /* Box Model */
+    width: 250px;
+    height: 300px;
+
+    /* Fit Image */
+    object-fit: contain;
+    object-position: left;
+
+    /* Position */
+    z-index: 1;
+  }
+
+  .cms-img {
+    /* Box Model */
+    width: 242px;
+    height: 300px;
+
+    /* Image */
+    object-fit: cover;
+    /* aspect-ratio: 1 / 1; */
+
+    /* Position */
+    /* position: absolute;
+    top: 0; */
+  }
+
+  /* ----------- KeyWords themselves ------------------- */
   .services__keyword-container {
     /* Box Model */
     margin-top: 2rem;
@@ -114,6 +194,10 @@ import secondImage from '../../assets/images/street-art.jpg';
     color: #8499b1;
     font-size: var(--size-xl);
     font-weight: bold;
+  }
+
+  .web-dev-keyword {
+    text-align: left;
   }
 
   /* MOBILE FIRST PRE-DEFINED MEDIA QUERIES */
@@ -144,8 +228,12 @@ import secondImage from '../../assets/images/street-art.jpg';
       /* flex: 1; */
     }
 
-    .first__image {
+    .keyword-img-container {
       flex: 1;
+    }
+
+    .first__image {
+      /* flex: 1; */
       text-align: left;
     }
     .services__keyword-container {
@@ -165,3 +253,16 @@ import secondImage from '../../assets/images/street-art.jpg';
   /* 2xl */
   /* @media (min-width: 1536px) {} */
 </style>
+
+<script>
+  // Get all Web Dev keywords
+  const webDevKeywords = document.querySelectorAll(
+    '.web-dev-keyword'
+  );
+  // console.log(webDevKeywords);
+  webDevKeywords.forEach((webDevkeyword) => {
+    webDevkeyword.addEventListener('click', (event) => {
+      console.log('Hovering');
+    });
+  });
+</script>
