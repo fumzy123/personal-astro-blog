@@ -29,22 +29,35 @@ import threeDdevelopmentImage from '../../assets/images/3d-development.png';
       <div class="keyword-img-container">
         <Image
           class="keyword-img responsiveWebsiteImage"
+          data-key="responsive-website"
           src={responsiveWebsiteImage}
           alt=""
         />
 
-        <Image class="keyword-img cmsImage" src={cmsImage} alt="" />
+        <Image
+          class="keyword-img cmsImage"
+          data-key="cms-image"
+          src={cmsImage}
+          alt=""
+        />
 
         <Image
           class="keyword-img threeDdevelopmentImage"
+          data-key="three-d-development"
           src={threeDdevelopmentImage}
           alt=""
         />
       </div>
       <div class="services__keyword-container">
-        <button class="web-dev-keyword">Responsive Websites</button>
-        <button class="web-dev-keyword">CMS Integration</button>
-        <button class="web-dev-keyword">3D Development</button>
+        <button class="web-dev-keyword" data-key="responsive-website"
+          >Responsive Websites</button
+        >
+        <button class="web-dev-keyword" data-key="cms-image"
+          >CMS Integration</button
+        >
+        <button class="web-dev-keyword" data-key="three-d-development"
+          >3D Development</button
+        >
       </div>
     </div>
   </div>
@@ -255,14 +268,60 @@ import threeDdevelopmentImage from '../../assets/images/3d-development.png';
 </style>
 
 <script>
-  // Get all Web Dev keywords
+  // Get all Elements that have the Web Dev keyword buttons
   const webDevKeywords = document.querySelectorAll(
     '.web-dev-keyword'
   );
-  // console.log(webDevKeywords);
+
+  // Get all the Web Dev Images
+  const webDevImages = Array.from(
+    document.querySelectorAll('.keyword-img')
+  );
+
+  // Add an Event Listener to each Element
+
+  // Event Handler
+  function handleKeyWordImageToggle(event) {
+    // Get the data-key of the Selected Button
+    const selectedKeyword = event.currentTarget;
+    const key = selectedKeyword.getAttribute('data-key');
+    console.log(key);
+
+    // Use the Button's data-key to get the Image that matches
+    let selectedWebDevImg = webDevImages.find(
+      (img) => img.getAttribute('data-key') === key
+    ) as HTMLElement;
+
+    // Select the Image with the highest z-index
+    const frontImage = webDevImages.find(
+      (img) => window.getComputedStyle(img).zIndex === '3'
+    ) as HTMLElement;
+
+    // If the Image in Front is the same selected image return
+    if (selectedWebDevImg == frontImage) {
+      console.log('The same');
+      return;
+    }
+
+    // Get the Current Z-Index & Scale of the Selected Image.
+    const selectedImgZIndex =
+      window.getComputedStyle(selectedWebDevImg).zIndex;
+    const selectedImgTransform =
+      window.getComputedStyle(selectedWebDevImg).transform;
+
+    // Set the Z-Index & Transform of the Selected Image to 3
+    selectedWebDevImg.style.zIndex = '3';
+    selectedWebDevImg.style.transform = 'scale(1)';
+
+    // Set the Z-Index & Transform of the frontImage to the old Z-Index of the selected image
+    frontImage.style.zIndex = selectedImgZIndex;
+    frontImage.style.transform = selectedImgTransform;
+
+    // Confirm Keyword Button that was clicked. the element that was selected.
+  }
+
+  // Add an Event listner to all the buttons on the Web Dev page
   webDevKeywords.forEach((webDevkeyword) => {
-    webDevkeyword.addEventListener('click', (event) => {
-      console.log('Hovering');
-    });
+    webDevkeyword.addEventListener('click', handleKeyWordImageToggle);
   });
 </script>
