@@ -2,7 +2,7 @@
 import { z, defineCollection } from 'astro:content';
 
 // 2. Define a Type and Schema for each collection
-const ideasCollection = defineCollection({
+const webDevelopmentCollection = defineCollection({
   type: 'content',
   schema: z.object({
     title: z.string(),
@@ -21,5 +21,5 @@ const ideasCollection = defineCollection({
 
 // 3. Export a single `collections` object to register your collections
 export const collections = {
-  ideas: ideasCollection,
+  'web-development': webDevelopmentCollection,
 };

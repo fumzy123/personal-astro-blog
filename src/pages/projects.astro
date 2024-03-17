@@ -1,9 +1,19 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+// Make a fetch request to GitHub API Endpoint to get my Repo
+const END_POINT = `https://api.github.com/users/fumzy123/repos`;
+const response = await fetch(END_POINT);
+const data = await response.json();
+console.log(data);
 ---
 
 <BaseLayout>
-  <section class='projects'>
-      
+  <section class="projects container">
+    <ul>
+      {data.map((repo) => <li><a href=`${repo.html_url}`>{repo.name}</a></li>)}
+    </ul>
   </section>
 </BaseLayout>
+
+<style></style>

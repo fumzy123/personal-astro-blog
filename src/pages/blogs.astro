@@ -9,12 +9,12 @@ import FormattedDate from "../components/shared/FormattedDate.astro";
 // Import and Query Collections
 import { getCollection } from "astro:content";
 
-const allIdeaPosts = await getCollection('ideas');
+const allIdeaPosts = await getCollection('web-development');
 
 ---
 
 <BaseLayout>
-    <section class="blog-list container">
+    <section class="blog-list">
         <ul>
             {
                 allIdeaPosts.map( post => (
