@@ -1,0 +1,130 @@
+---
+// Import Base Layout
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+// Import a Small Component
+import FormattedDate from '../components/shared/FormattedDate.astro';
+
+// Import Collections Utility and Get Blog Post
+import { getCollection } from 'astro:content';
+const allWebDevelopmentBlogPost =
+  await getCollection('web-development');
+
+import { Image } from 'astro:assets';
+---
+
+<BaseLayout>
+  <section class="blog-list container">
+    <ul class="blog-card-container">
+      {
+        allWebDevelopmentBlogPost.map((post) => (
+          <li class="blog-card-item">
+            <a
+              class="blog-card"
+              href={`/blogs/web-development/${post.slug}`}
+            >
+              <div class="blog-image-container">
+                <Image
+                  class="blog-image"
+                  src={post.data.imageCover}
+                  alt={post.data.imageCoverAlt}
+                />
+              </div>
+              <div class="blog-info">
+                <header class="blog-card-date">
+                  <FormattedDate date={post.data.pubDate} />
+                </header>
+
+                <h3 class="blog-title">{post.data.title}</h3>
+              </div>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</BaseLayout>
+
+<style>
+  .blog-card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .blog-card-item {
+    list-style: none;
+
+    /* Box Model */
+    max-width: 285px;
+    border-radius: 10px;
+
+    /* Background */
+    background-color: var(--clr-cordovan);
+
+    /* Typography */
+    text-decoration: none;
+    color: white;
+  }
+
+  .blog-card {
+    color: var(--clr-dutch-whtie);
+    text-decoration: none;
+
+    /* display: flex; */
+    /* max-width: 285px; */
+  }
+  .blog-card-date {
+    padding: 1rem;
+  }
+  .blog-image-container {
+    /* border: 2px solid green; */
+    height: 250px;
+  }
+
+  .blog-image {
+    border-radius: 10px;
+    max-height: 100%;
+    /* aspect-ratio: 1 / 1; */
+    /* object-fit: cover; */
+  }
+
+  .blog-title {
+    padding: 1rem;
+  }
+
+  /* MOBILE FIRST PRE-DEFINED MEDIA QUERIES */
+  /* xs */
+  /* @media (min-width: 475px) {
+
+  } */
+
+  /* sm */
+  @media (min-width: 640px) {
+    .blog-card-item {
+      max-width: 480px;
+    }
+
+    .blog-card {
+      display: flex;
+      flex-direction: row;
+    }
+    .blog-image-container {
+      flex: 1;
+    }
+    .blog-info {
+      flex: 1;
+    }
+  }
+
+  /* md */
+  /* @media (min-width: 768px) {} */
+
+  /* lg */
+  /* @media (min-width: 1024px) {} */
+
+  /* xl */
+  /* @media (min-width: 1280px) {} */
+
+  /* 2xl */
+  /* @media (min-width: 1536px) {} */
+</style>

@@ -1,0 +1,440 @@
+---
+// Import Image components and images
+import { Image, Picture } from 'astro:assets';
+
+// Import Skill Images
+// Web Dev
+import firstImage from '../../assets/images/lady-with-bowl.jpg';
+import responsiveWebsiteImage from '../../assets/images/responsive-website.png';
+import cmsImage from '../../assets/images/cms.png';
+import threeDdevelopmentImage from '../../assets/images/3d-development.png';
+
+// Motion Design
+import graphicDesignImage from '../../assets/images/graphic-design.jpg';
+import animationImage from '../../assets/images/animation.jpg';
+import soundDesignImage from '../../assets/images/sound-design.jpg';
+---
+
+<section class="skills container section">
+  <!-- Title -->
+  <h2 class="title">What I do</h2>
+
+  <!-- Web Development -->
+  <div class="skill-container web-dev-container">
+    <!-- Skill Name and Description -->
+    <div class="skill-info-container">
+      <h3 class="skill-name">Web Development</h3>
+      <p class="skill-description">
+        I bring your Figma design to life using custom code. Reponsive
+        Websites, CMS Integration, and 3D Development, at your
+        service.
+      </p>
+    </div>
+
+    <!-- Skill-keywords and corresponding images container-->
+    <div class="skill-keyword-and-img-container">
+      <!-- Skill Image Container -->
+      <div
+        class="skill-img-container"
+        data-skill-type="web-development"
+      >
+        <Image
+          class="skill-image front-img"
+          data-key="responsive-website"
+          src={responsiveWebsiteImage}
+          alt=""
+        />
+
+        <Image
+          class="skill-image middle-img"
+          data-key="cms"
+          src={cmsImage}
+          alt=""
+        />
+
+        <Image
+          class="skill-image back-img"
+          data-key="three-d-development"
+          src={threeDdevelopmentImage}
+          alt=""
+        />
+      </div>
+      <!-- Skill Keyword Container -->
+      <div class="skill-keyword-container">
+        <button
+          class="skill-keyword web-dev-keyword"
+          data-key="responsive-website"
+          data-skill-type="web-development"
+          >Responsive Websites</button
+        >
+        <button
+          class="skill-keyword web-dev-keyword"
+          data-key="cms"
+          data-skill-type="web-development">CMS Integration</button
+        >
+        <button
+          class="skill-keyword web-dev-keyword"
+          data-key="three-d-development"
+          data-skill-type="web-development">3D Development</button
+        >
+      </div>
+    </div>
+
+    <!-- Skill number -->
+    <span class="skill-number">01.</span>
+  </div>
+
+  <!-- Motion Design  -->
+  <div class="skill-container motion-design-container">
+    <!-- Skill Info (Name & Description) -->
+    <div class="skill-info-container">
+      <h3 class="skill-name">Motion Design</h3>
+      <p class="skill-description">
+        I transform static ideas into captivating animations. From
+        engaging explainer videos, or seamless transitions, I’ll
+        breathe life into your brand
+      </p>
+    </div>
+
+    <!-- Skill Images & Keywords Container-->
+    <div class="skill-keyword-and-img-container">
+      <!-- Skill Image Container -->
+      <div
+        class="skill-img-container"
+        data-skill-type="motion-design"
+      >
+        <!-- <Image class="first__image" src={firstImage} alt="" /> -->
+        <Image
+          class="skill-image front-img"
+          data-key="graphic-design"
+          src={graphicDesignImage}
+          alt=""
+        />
+        <Image
+          class="skill-image middle-img"
+          data-key="animation"
+          src={animationImage}
+          alt=""
+        />
+        <Image
+          class="skill-image back-img"
+          data-key="sound-design"
+          src={soundDesignImage}
+          alt=""
+        />
+      </div>
+
+      <!-- Skill Keyword Container -->
+      <div class="skill-keyword-container">
+        <button
+          class="skill-keyword motion-design-keyword"
+          data-key="graphic-design"
+          data-skill-type="motion-design">Graphic Design</button
+        >
+        <button
+          class="skill-keyword motion-design-keyword"
+          data-key="animation"
+          data-skill-type="motion-design">Animation</button
+        >
+        <button
+          class="skill-keyword motion-design-keyword"
+          data-key="sound-design"
+          data-skill-type="motion-design">Sound Design</button
+        >
+      </div>
+
+      <!--  -->
+      <span class="skill-number">02.</span>
+    </div>
+  </div>
+</section>
+
+<style>
+  .title {
+    /* Typography */
+    text-align: center;
+    color: var(--clr-dutch-white);
+    font-size: var(--size-3xl);
+  }
+
+  /* --------------------- Skill Container --------------------- */
+  .skill-container {
+    /* Box Model */
+    padding: 1rem;
+    border-top: 2px solid var(--clr-cordovan);
+    /* border: 2px solid green; */
+
+    background-color: var(--clr-eerie-black);
+
+    position: sticky;
+  }
+
+  .web-dev-container {
+    margin-top: 2rem;
+    margin-bottom: 16vh;
+
+    top: 8vh;
+  }
+
+  .motion-design-container {
+    margin-bottom: 8vh;
+    /* margin-top: -100px; */
+  }
+
+  /* .test {
+    top: 110px;
+  } */
+
+  /* ----------- First Block: Skill Info (Name and Description) ------------------ */
+  .skill-name {
+    color: var(--clr-cordovan);
+  }
+
+  .skill-description {
+    margin: 0.5rem 0;
+
+    /* Typography */
+    font-size: var(--size-sm);
+    color: var(--clr-slate600);
+  }
+
+  /* -------------- Second Block: Skill Image-and-Keyword Container ----------------------- */
+  .skill-keyword-and-img-container {
+    /* border: 2px solid peachpuff; */
+    /* Layout */
+    /* display: flex; */
+    /* flex-direction: column; */
+  }
+
+  /* ----------------- Second Block a: Skill Image Container and its images ------------- */
+  .skill-img-container {
+    /* Box Model */
+    /* border: 2px dashed yellow; */
+    margin-top: 1.5rem;
+
+    /* Layout */
+    display: grid;
+    grid-template-rows: 50px 50px auto;
+    grid-template-areas:
+      'photo3'
+      'photo2'
+      'photo1';
+  }
+
+  /* All Images */
+  .skill-image {
+    width: 300px;
+    height: 300px;
+
+    object-fit: cover;
+
+    /* transition-property: transform;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+    transition-delay: 0.05s; */
+
+    transition: all 0.3s ease 0.05s;
+  }
+
+  /* Classes to Position Skill Images in the right place */
+  .front-img {
+    /* Transform */
+    transform: scale(1);
+
+    /* Position */
+    z-index: 3;
+
+    /*  */
+    grid-area: photo3;
+  }
+  .middle-img {
+    /* Transform */
+    transform: scale(0.95);
+    z-index: 2;
+
+    /* Layout */
+    grid-area: photo2;
+  }
+  .back-img {
+    /* Transform */
+    transform: scale(0.9);
+    z-index: 1;
+
+    /* Layout */
+    grid-area: photo1;
+  }
+
+  /*------------- Second Block b: Skill Keyword Container ---------------*/
+
+  .skill-keyword-container {
+    /* Box Model */
+    /* border: 2px dashed lightsalmon; */
+    margin-top: 1rem;
+
+    /* Layout */
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    /* Typography */
+    color: #8499b1;
+    font-size: var(--size-xl);
+    font-weight: bold;
+  }
+
+  /* All Keywords */
+  .skill-keyword {
+    text-align: left;
+  }
+
+  /* Span */
+  .skill-number {
+    /* Typography */
+    font-size: var(--size-9xl);
+    font-weight: 800;
+    color: var(--clr-slate600);
+    opacity: 0.3;
+
+    /* Position */
+    z-index: -10;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+  }
+
+  /* MOBILE FIRST PRE-DEFINED MEDIA QUERIES */
+  /* xs */
+  @media (min-width: 475px) {
+    .services__title {
+      font-size: var(--size-4xl);
+    }
+
+    .skill-name {
+      font-size: var(--size-2xl);
+    }
+    .skill-description {
+      font-size: var(--size-base);
+    }
+
+    .skill-keyword-container {
+      /* Typography */
+      font-size: var(--size-2xl);
+    }
+  }
+
+  /* sm */
+  @media (min-width: 640px) {
+    .skill-keyword-and-img-container {
+      flex-direction: row;
+      justify-content: space-between;
+      /* flex: 1; */
+    }
+
+    .skill-img-container {
+      flex: 1;
+    }
+
+    .first__image {
+      /* flex: 1; */
+      text-align: left;
+    }
+    .skill-keyword-container {
+      flex: 1;
+    }
+  }
+
+  /* md */
+  /* @media (min-width: 768px) {} */
+
+  /* lg */
+  /* @media (min-width: 1024px) {} */
+
+  /* xl */
+  /* @media (min-width: 1280px) {} */
+
+  /* 2xl */
+  /* @media (min-width: 1536px) {} */
+</style>
+
+<script>
+  // Get all Skill keyword buttons
+  const skillKeywordButtons =
+    document.querySelectorAll('.skill-keyword');
+
+  // Event Handler
+  function handleKeyWordImageToggle(event) {
+    // Get the Selected Button
+    const selectedKeyword = event.currentTarget;
+
+    // Get the key for the button (The key allows us to know what image to select)
+    const key = selectedKeyword.getAttribute('data-key');
+    // console.log(key);
+
+    // Get the Skill type (This tells us what skill-container to select)
+    const skillType = selectedKeyword.getAttribute('data-skill-type');
+    // console.log(skillType);
+
+    // Select the Correct skill-image-container using the skillType
+    const skillImageContainer = document.querySelector(
+      `.skill-img-container[data-skill-type=${skillType}]`
+    );
+    // console.log(skillImageContainer);
+
+    // Get all the Images in the Skill Image Container, and
+    // Put them in an array
+    const relatedSkillImages = Array.from(
+      skillImageContainer.children
+    );
+    // console.log(relatedSkillImages);
+
+    // Use the Button's data-key to get the Skill-Image
+    // that matches the keyword
+    let selectedSkillImage = relatedSkillImages.find(
+      (img) => img.getAttribute('data-key') === key
+    ) as HTMLElement;
+    console.log(selectedSkillImage);
+
+    // Find the Image that is in front in the skill-img container
+    const frontImage = relatedSkillImages.find(
+      (img) => window.getComputedStyle(img).zIndex === '3'
+    ) as HTMLElement;
+    console.log(frontImage);
+
+    // If the Image in Front is the same selected image return
+    if (selectedSkillImage == frontImage) {
+      console.log('The same');
+      return;
+    }
+
+    // return;
+
+    // Get the Z-Index, Scale, and Grid-Area of the Selected Image.
+    const selectedImgZIndex = window.getComputedStyle(
+      selectedSkillImage
+    ).zIndex;
+    const selectedImgTransform = window.getComputedStyle(
+      selectedSkillImage
+    ).transform;
+    const selectedImgGrdiArea = window.getComputedStyle(
+      selectedSkillImage
+    ).gridArea;
+    console.log(selectedImgGrdiArea);
+
+    // Move the Selected Image to the front
+    // By chaning the Z-Index, Transform, and GridArea of the Selected Image to 3
+    selectedSkillImage.style.zIndex = '3';
+    selectedSkillImage.style.transform = 'scale(1)';
+    selectedSkillImage.style.gridArea = 'photo3';
+
+    // Move the Front Image to the former position of the selected Image
+    // By changing the Z-Index, Transform, and gridArea of the frontImage to the former Z-Index, Transform and Grid Area of the selected image
+    frontImage.style.zIndex = selectedImgZIndex;
+    frontImage.style.transform = selectedImgTransform;
+    frontImage.style.gridArea = selectedImgGrdiArea;
+  }
+
+  // Add an Event listner to all the buttons on the Web Dev page
+  skillKeywordButtons.forEach((keywordButton) => {
+    keywordButton.addEventListener('click', handleKeyWordImageToggle);
+  });
+</script>

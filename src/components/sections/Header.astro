@@ -31,7 +31,11 @@ const currentPath = Astro.url.pathname;
     >
       Projects
     </HeaderLink>
-    <HeaderLink client:load href="/blogs/" currentPath={currentPath}>
+    <HeaderLink
+      client:load
+      href="/blog-feed/"
+      currentPath={currentPath}
+    >
       Blog
     </HeaderLink>
     <HeaderLink client:load href="/shop/" currentPath={currentPath}>
@@ -63,7 +67,7 @@ const currentPath = Astro.url.pathname;
         >
       </li>
       <li>
-        <MobileNavLink className="mobile-nav__link" href="/blogs/"
+        <MobileNavLink className="mobile-nav__link" href="/blog-feed/"
           >Blogs</MobileNavLink
         >
       </li>
@@ -132,7 +136,7 @@ const currentPath = Astro.url.pathname;
 
   .mobile-nav {
     /* Box Model */
-    border: 2px solid green;
+    /* border: 2px solid green; */
     width: 100%;
     height: 100%;
 
