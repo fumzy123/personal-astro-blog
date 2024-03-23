@@ -6,14 +6,96 @@ const END_POINT = `https://api.github.com/users/fumzy123/repos`;
 const response = await fetch(END_POINT);
 const data = await response.json();
 console.log(data);
+
+// Motion
 ---
 
 <BaseLayout>
   <section class="projects container">
-    <ul>
-      {data.map((repo) => <li><a href=`${repo.html_url}`>{repo.name}</a></li>)}
+    <h2 class="title">Projects</h2>
+
+    <div class="project-categories">
+      <button class="project-name web-dev-category"
+        >Web Development</button
+      >
+
+      <button class="project-name motion-graphics-category"
+        >Motion Graphics</button
+      >
+
+      <button class="project-name design-category">Design</button>
+    </div>
+  </section>
+
+  <section class="project-content container">
+    <ul class="web-dev-projects">
+      {
+        data.map((repo) => (
+          <li>
+            <a href={`${repo.html_url}`}>{repo.name}</a>
+          </li>
+        ))
+      }
     </ul>
   </section>
 </BaseLayout>
 
-<style></style>
+<style>
+  .title {
+    text-align: center;
+  }
+  .project-categories {
+    /* Box Model */
+    margin-top: 1rem;
+
+    /* Layout */
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+  }
+
+  /* ------------------------------------------------ */
+
+  .project-name {
+    font-size: var(--size-xs);
+    line-height: 1.5;
+  }
+
+  .active-category {
+    padding: 0.5em;
+    border-radius: 8px;
+    color: var(--clr-eerie-black);
+    background-color: var(--clr-dutch-white);
+    font-weight: bold;
+  }
+
+  /* ------------------------------------------ */
+  .project-content {
+    margin-top: 1rem;
+  }
+
+  .web-dev-projects {
+    list-style: none;
+  }
+</style>
+
+<script>
+  const projectButtons = document.querySelectorAll('.project-name');
+  console.log(projectButtons);
+
+  function handleActiveProject(event) {
+    // Get the HTML element that was clicked
+    const selectedProject = event.currentTarget;
+
+    // Remove the Active-Project CSS from all other Projects
+    projectButtons.forEach((projectButton) =>
+      projectButton.classList.remove('active-category')
+    );
+
+    // Apply the styling to the currently selected Project Category
+    selectedProject.classList.add('active-category');
+  }
+  projectButtons.forEach((projectButton) =>
+    projectButton.addEventListener('click', handleActiveProject)
+  );
+</script>

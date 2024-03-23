@@ -171,13 +171,12 @@ import soundDesignImage from '../../assets/images/sound-design.jpg';
 
   .web-dev-container {
     margin-top: 2rem;
-    margin-bottom: 16vh;
-
+    margin-bottom: 32vh;
     top: 8vh;
   }
 
   .motion-design-container {
-    margin-bottom: 8vh;
+    margin-bottom: 16vh;
     /* margin-top: -100px; */
   }
 
@@ -246,6 +245,8 @@ import soundDesignImage from '../../assets/images/sound-design.jpg';
 
     /*  */
     grid-area: photo3;
+
+    /* color: green; */
   }
   .middle-img {
     /* Transform */
@@ -422,15 +423,27 @@ import soundDesignImage from '../../assets/images/sound-design.jpg';
 
     // Move the Selected Image to the front
     // By chaning the Z-Index, Transform, and GridArea of the Selected Image to 3
-    selectedSkillImage.style.zIndex = '3';
-    selectedSkillImage.style.transform = 'scale(1)';
-    selectedSkillImage.style.gridArea = 'photo3';
+    // selectedSkillImage.style.zIndex = '3';
+    // selectedSkillImage.style.transform = 'scale(1)';
+    // selectedSkillImage.style.gridArea = 'photo3';
+    let selectedImageClass = '';
+    if (selectedSkillImage.classList.contains('middle-img')) {
+      selectedSkillImage.classList.remove('middle-img');
+      selectedImageClass = 'middle-img';
+    }
+    if (selectedSkillImage.classList.contains('back-img')) {
+      selectedSkillImage.classList.remove('back-img');
+      selectedImageClass = 'back-img';
+    }
+    selectedSkillImage.classList.add('front-img');
 
     // Move the Front Image to the former position of the selected Image
     // By changing the Z-Index, Transform, and gridArea of the frontImage to the former Z-Index, Transform and Grid Area of the selected image
-    frontImage.style.zIndex = selectedImgZIndex;
-    frontImage.style.transform = selectedImgTransform;
-    frontImage.style.gridArea = selectedImgGrdiArea;
+    // frontImage.style.zIndex = selectedImgZIndex;
+    // frontImage.style.transform = selectedImgTransform;
+    // frontImage.style.gridArea = selectedImgGrdiArea;
+    frontImage.classList.remove('front-img');
+    frontImage.classList.add(`${selectedImageClass}`);
   }
 
   // Add an Event listner to all the buttons on the Web Dev page
