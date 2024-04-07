@@ -15,27 +15,30 @@ import { Image } from 'astro:assets';
 
 <BaseLayout>
   <section class="blog-list container">
+    <h2 class="section-title">Blogs</h2>
     <ul class="blog-card-container">
       {
         allWebDevelopmentBlogPost.map((post) => (
           <li class="blog-card-item">
             <a
-              class="blog-card"
+              class="blog-card-item-link"
               href={`/blogs/web-development/${post.slug}`}
             >
-              <div class="blog-image-container">
-                <Image
-                  class="blog-image"
-                  src={post.data.imageCover}
-                  alt={post.data.imageCoverAlt}
-                />
-              </div>
-              <div class="blog-info">
-                <header class="blog-card-date">
-                  <FormattedDate date={post.data.pubDate} />
-                </header>
+              <div class="blog-card">
+                <div class="blog-image-container">
+                  <Image
+                    class="blog-image"
+                    src={post.data.imageCover}
+                    alt={post.data.imageCoverAlt}
+                  />
+                </div>
+                <div class="blog-info">
+                  <header class="blog-card-date">
+                    <FormattedDate date={post.data.pubDate} />
+                  </header>
 
-                <h3 class="blog-title">{post.data.title}</h3>
+                  <h3 class="blog-title">{post.data.title}</h3>
+                </div>
               </div>
             </a>
           </li>
@@ -46,7 +49,12 @@ import { Image } from 'astro:assets';
 </BaseLayout>
 
 <style>
+  .section-title {
+    font-size: var(--size-4xl);
+  }
   .blog-card-container {
+    margin-top: 2rem;
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -55,47 +63,54 @@ import { Image } from 'astro:assets';
     list-style: none;
 
     /* Box Model */
-    max-width: 285px;
     border-radius: 10px;
-
-    /* Background */
-    background-color: var(--clr-cordovan);
+    border: 2px solid var(--clr-slate600);
 
     /* Typography */
     text-decoration: none;
     color: white;
   }
 
-  .blog-card {
+  .blog-card-item-link {
+    /* Typogrpahy */
     color: var(--clr-dutch-whtie);
     text-decoration: none;
-
-    /* display: flex; */
-    /* max-width: 285px; */
   }
-  .blog-card-date {
+
+  .blog-card {
     padding: 1rem;
   }
+  .blog-card-date {
+    /* padding: 1rem; */
+  }
+
+  /* Image */
   .blog-image-container {
-    /* border: 2px solid green; */
-    height: 250px;
+    /* This is an Image Wrapper that ensures the image maintains
+    a particular aspect ratio.
+     */
+    aspect-ratio: 1 / 1;
   }
 
   .blog-image {
     border-radius: 10px;
+    /* Image has a max-width and height to fill the parent div element */
     max-height: 100%;
-    /* aspect-ratio: 1 / 1; */
-    /* object-fit: cover; */
+    /* Zooms in-and-out to cover the entire width and height without stretching */
+    object-fit: cover;
+  }
+
+  .blog-info {
+    margin-top: 2rem;
   }
 
   .blog-title {
-    padding: 1rem;
+    margin-top: 0.5rem;
   }
 
   /* MOBILE FIRST PRE-DEFINED MEDIA QUERIES */
   /* xs */
   /* @media (min-width: 475px) {
-
   } */
 
   /* sm */
@@ -107,6 +122,7 @@ import { Image } from 'astro:assets';
     .blog-card {
       display: flex;
       flex-direction: row;
+      gap: 2rem;
     }
     .blog-image-container {
       flex: 1;

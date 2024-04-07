@@ -20,17 +20,18 @@ const currentPath = Astro.url.pathname;
 <header class=`header container`>
   <p class="header__logo">FUMEZ</p>
 
+  <!-- Desktop Navigation Menu -->
   <nav class="header__menu">
     <HeaderLink client:load href="/" currentPath={currentPath}>
       Home
     </HeaderLink>
-    <HeaderLink
+    <!-- <HeaderLink
       client:load
       href="/projects/"
       currentPath={currentPath}
     >
       Projects
-    </HeaderLink>
+    </HeaderLink> -->
     <HeaderLink
       client:load
       href="/blog-feed/"
@@ -61,14 +62,14 @@ const currentPath = Astro.url.pathname;
           >Home</MobileNavLink
         >
       </li>
-      <li>
+      <!-- <li>
         <MobileNavLink className="mobile-nav__link" href="/projects/"
           >Projects</MobileNavLink
         >
-      </li>
+      </li> -->
       <li>
         <MobileNavLink className="mobile-nav__link" href="/blog-feed/"
-          >Blogs</MobileNavLink
+          >Blog</MobileNavLink
         >
       </li>
       <li>
@@ -110,8 +111,6 @@ const currentPath = Astro.url.pathname;
 
     /* Typography  */
     /* font-size: 1rem; */
-
-    width:;
   }
 
   /*  */
@@ -222,12 +221,15 @@ const currentPath = Astro.url.pathname;
 <script>
   // Select the Menu Icon
   const headerBtn = document.querySelector('.header__menu-icon');
+
   // Select the Mobile Navigation div
   const mobileNav = document.querySelector(
     '.mobile-nav'
   ) as HTMLElement;
 
   function handleToggleClick() {
+    console.log('Burger pressed');
+
     // Toggle inactive class
     mobileNav.classList.toggle('inactive');
 

@@ -1,20 +1,26 @@
 ---
-// Import Packaages
+// Import Astro Icon Package
 import { Icon } from 'astro-icon/components';
 ---
 
-<div class="header__socials container section">
+<section class="header__socials container section">
+  <!-- Using an Icon from an Open-Source Icon set -->
   <a
     class="header__social-media"
     href="https://www.linkedin.com/in/fumeuvwie"
-    target="_blank"><Icon name="mdi:linkedin" size={25} /></a
+    target="_blank"
   >
+    <Icon name="mdi:linkedin" size={25} />
+  </a>
+  <!-- Locally Sourced Icon from my `src/assets/icon` folder -->
   <a
     class="header__social-media"
     href="https://github.com/fumzy123"
-    target="_blank"><Icon name="github" size={25} /></a
+    target="_blank"
   >
-</div>
+    <Icon name="github" size={25} />
+  </a>
+</section>
 
 <style>
   .header__socials {
