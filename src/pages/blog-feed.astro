@@ -11,6 +11,16 @@ const allWebDevelopmentBlogPost =
   await getCollection('web-development');
 
 import { Image } from 'astro:assets';
+import AllArticles from '../storyblok/BlogPostList.astro';
+
+// StoryBlok
+import { useStoryblokApi } from '@storyblok/astro';
+import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro';
+import BlogPostList from '../storyblok/BlogPostList.astro';
+
+// Get the BlogPostList story
+const storyblokApi = useStoryblokApi();
+const { data } = await storyblokApi.get('cdn/stories/blog-feed', {});
 ---
 
 <BaseLayout>
@@ -45,6 +55,7 @@ import { Image } from 'astro:assets';
         ))
       }
     </ul>
+    <BlogPostList />
   </section>
 </BaseLayout>
 

@@ -1,0 +1,57 @@
+---
+// 1. Import Content Collection utility
+// import { getCollection } from 'astro:content';
+
+import { useStoryblokApi } from '@storyblok/astro';
+import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro';
+
+// 2. Import the Layout for BlogPosts
+import BlogPostLayout from '../../layouts/BlogPostLayout.astro';
+
+// 3. Generate Static Pages for Each blog post in the Content Collection
+// This is Dynamic Routing. This Function is returning an Array of Objects. Each object in the array
+// tells Astro what paths should be pre-rendered at build time.
+// The paths would be `blogs/web-development/[blog_post_slug]`
+// The `blog_post_slug` is a parameter that will be replaced by
+// the slug of the our blog post entry.
+// By default the slug is the name of the mdx file
+//
+//
+// Astro is creating a page Route
+// for each Blog Post Entry in my Web Development Collection.
+// Because this is SSG. Dynamic routes are created on build time.
+export async function getStaticPaths() {
+  // Get the all the Entries in the Web Development Collection
+  // const webDevBlogPosts = await getCollection('web-development');
+
+  const sbApi = useStoryblokApi();
+  const { data } = await sbApi.get('cdn/stories', {
+    content_type: 'blogPost',
+    version: import.meta.env.DEV ? 'draft' : 'published',
+  });
+
+  const stories = Object.values(data.stories);
+  console.log('The Story is here:');
+
+  return stories.map((story) => {
+    return {
+      params: { blog_post_slug: story.slug },
+    };
+  });
+}
+
+const sbApi = useStoryblokApi();
+const { blog_post_slug } = Astro.params;
+const { data } = await sbApi.get(
+  `cdn/stories/blog/${blog_post_slug}`,
+  {
+    version: import.meta.env.DEV ? 'draft' : 'published',
+  }
+);
+
+const story = data.story;
+---
+
+<section>
+  <StoryblokComponent blok={story.content} />
+</section>

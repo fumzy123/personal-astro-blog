@@ -1,0 +1,96 @@
+---
+import { Image } from 'astro:assets';
+
+import { storyblokEditable, useStoryblokApi } from '@storyblok/astro';
+import FormattedDate from '../components/shared/FormattedDate.astro';
+
+const { blok } = Astro.props;
+
+// Use the StoryBlok Content Delivery API to get All Blog posts
+const storyblokApi = useStoryblokApi();
+const { data } = await storyblokApi.get('cdn/stories/', {
+  version: import.meta.env.DEV ? 'draft' : 'published',
+  content_type: 'blogPost',
+});
+
+// console.log(data.stories);
+
+const posts = data.stories.map((story) => {
+  return {
+    title: story.content.title,
+    date: new Date(story.published_at),
+    image: story.content.image,
+    description: story.content.description,
+    slug: story.slug.toString(),
+  };
+});
+---
+
+<ul {...storyblokEditable(blok)}>
+  {
+    posts.map((post) => (
+      <li class="blog-card-item">
+        <a class="blog-card-item-link" href={`/blog/${post.slug}`}>
+          <div class="blog-card">
+            <div class="blog-image-container">
+              <img
+                src={post.image.filename}
+                alt=""
+                class="blog-image"
+              />
+            </div>
+            <div class="blog-card-info">
+              <FormattedDate date={post.date} />
+              <h3 class="blog-title">{post.title}</h3>
+            </div>
+          </div>
+        </a>
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  .blog-card-item {
+    /* Box Model */
+    padding: 1rem;
+    border: 2px solid var(--clr-slate600);
+    border-radius: 10px;
+
+    /* List */
+    list-style: none;
+  }
+
+  .blog-card-item:not(:first-child) {
+    margin-top: 3rem;
+  }
+
+  .blog-card-item-link {
+    color: white;
+    text-decoration: none;
+  }
+
+  .blog-card {
+    /* Layout */
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .blog-image-container {
+    /* border: 2px solid orange; */
+  }
+
+  .blog-image {
+    /* Box Model */
+    max-height: 100%;
+    border-radius: 10px;
+
+    /* Image */
+    object-fit: cover;
+  }
+
+  .blog-title {
+    margin-top: 0.5rem;
+  }
+</style>
