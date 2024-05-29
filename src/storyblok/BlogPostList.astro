@@ -18,7 +18,7 @@ const { data } = await storyblokApi.get('cdn/stories/', {
 console.log(data.stories[0]);
 
 //  Get all the Blog Card info from the Post
-const blogPosts = data.stories.map((story) => {
+const posts = data.stories.map((story) => {
   return {
     title: story.content.title,
     date: new Date(story.published_at),
@@ -31,27 +31,7 @@ const blogPosts = data.stories.map((story) => {
 const { blok } = Astro.props;
 ---
 
-<!-- Render a 2-dimensional Layout of Grids -->
-<div class="blog-card-grid">
-  {
-    blogPosts.map((blog) => (
-      <a class="blog-card">
-        <img
-          src={blog.image.filename}
-          alt={blog.image.alt}
-          class="blog-image"
-        />
-
-        <div>
-          <h3 class="blog-title">{blog.title}</h3>
-          <p class="blog-desc">{blog.teaser}</p>
-        </div>
-      </a>
-    ))
-  }
-</div>
-
-<!-- <ul {...storyblokEditable(blok)}>
+<ul {...storyblokEditable(blok)}>
   {
     posts.map((post) => (
       <li class="blog-card-item">
@@ -73,7 +53,7 @@ const { blok } = Astro.props;
       </li>
     ))
   }
-</ul> -->
+</ul>
 
 <style>
   .blog-card-grid {
