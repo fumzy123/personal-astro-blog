@@ -17,7 +17,6 @@ import { ViewTransitions } from 'astro:transitions';
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>Fumez</title>
     <!-- <ViewTransitions /> -->
@@ -26,32 +25,6 @@ import { ViewTransitions } from 'astro:transitions';
   <body>
     <Header />
     <slot />
-    <!-- <Footer/> -->
-
-    <!-- <div class="container">
-
-			<section class="header">
-				<Header></Header>
-			</section>
-
-			<section class="slot">
-				<slot />
-			</section>
-
-			<section class="footer">
-				<Footer></Footer>
-			</section>
-		</div> -->
-
-    <!-- <section class="container">
-			<h1>The current URL is: {Astro.url}</h1>
-			<h1>The current URL pathname is: {Astro.url.pathname}</h1>
-			<h1>The current URL origin is: {Astro.url.origin}</h1>
-		</section> -->
-
-    <!-- <section class="container">
-			<slot />
-		</section> -->
     <style>
       .slot {
         margin-top: 2rem;
