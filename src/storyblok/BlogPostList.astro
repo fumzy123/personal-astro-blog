@@ -1,10 +1,12 @@
 ---
+// ---------------- Libraries -------------------------------
 import { Image } from 'astro:assets';
 
-import { storyblokEditable, useStoryblokApi } from '@storyblok/astro';
+// ----------- Components ------------------------------------
 import FormattedDate from '../components/shared/FormattedDate.astro';
 
-const { blok } = Astro.props;
+// ------------ StoryBlok API ----------------------------
+import { storyblokEditable, useStoryblokApi } from '@storyblok/astro';
 
 // Use the StoryBlok Content Delivery API to get All Blog posts
 const storyblokApi = useStoryblokApi();
@@ -13,20 +15,43 @@ const { data } = await storyblokApi.get('cdn/stories/', {
   content_type: 'blogPost',
 });
 
-// console.log(data.stories);
+console.log(data.stories[0]);
 
-const posts = data.stories.map((story) => {
+//  Get all the Blog Card info from the Post
+const blogPosts = data.stories.map((story) => {
   return {
     title: story.content.title,
     date: new Date(story.published_at),
     image: story.content.image,
-    description: story.content.description,
+    teaser: story.content.teaser,
     slug: story.slug.toString(),
   };
 });
+
+const { blok } = Astro.props;
 ---
 
-<ul {...storyblokEditable(blok)}>
+<!-- Render a 2-dimensional Layout of Grids -->
+<div class="blog-card-grid">
+  {
+    blogPosts.map((blog) => (
+      <a class="blog-card">
+        <img
+          src={blog.image.filename}
+          alt={blog.image.alt}
+          class="blog-image"
+        />
+
+        <div>
+          <h3 class="blog-title">{blog.title}</h3>
+          <p class="blog-desc">{blog.teaser}</p>
+        </div>
+      </a>
+    ))
+  }
+</div>
+
+<!-- <ul {...storyblokEditable(blok)}>
   {
     posts.map((post) => (
       <li class="blog-card-item">
@@ -48,9 +73,44 @@ const posts = data.stories.map((story) => {
       </li>
     ))
   }
-</ul>
+</ul> -->
 
 <style>
+  .blog-card-grid {
+    /* Layout */
+    display: grid;
+    gap: 4rem;
+  }
+
+  .blog-card {
+    /* Layout */
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    /* Color */
+    /* background-color: blue; */
+  }
+
+  /* Blog Info */
+  .blog-title {
+    /* Typography */
+    font-size: var(--font-size-body-large);
+
+    /* Color */
+    color: var(--clr-dutch-white);
+  }
+  .blog-desc {
+    /* Typography */
+    font-size: var(--font-size-small);
+
+    /* Color */
+    color: var(--clr-slate600);
+
+    /* Box Model */
+    margin-top: 0.5rem;
+  }
+
   .blog-card-item {
     /* Box Model */
     padding: 1rem;
@@ -70,13 +130,6 @@ const posts = data.stories.map((story) => {
     text-decoration: none;
   }
 
-  .blog-card {
-    /* Layout */
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-  }
-
   .blog-image-container {
     /* border: 2px solid orange; */
   }
@@ -88,9 +141,5 @@ const posts = data.stories.map((story) => {
 
     /* Image */
     object-fit: cover;
-  }
-
-  .blog-title {
-    margin-top: 0.5rem;
   }
 </style>

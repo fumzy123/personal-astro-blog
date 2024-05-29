@@ -25,8 +25,8 @@ const { data } = await storyblokApi.get('cdn/stories/blog-feed', {});
 
 <BaseLayout>
   <section class="blog-list container">
-    <h2 class="section-title">Blogs</h2>
-    <ul class="blog-card-container">
+    <h1 class="section-title">Blogs</h1>
+    <!-- <ul class="blog-card-container">
       {
         allWebDevelopmentBlogPost.map((post) => (
           <li class="blog-card-item">
@@ -54,14 +54,21 @@ const { data } = await storyblokApi.get('cdn/stories/blog-feed', {});
           </li>
         ))
       }
-    </ul>
+    </ul> -->
+
+    <br />
+    <br />
+    <br />
+
+    <!-- ---------------------------------- -->
     <BlogPostList />
   </section>
 </BaseLayout>
 
 <style>
   .section-title {
-    font-size: var(--size-4xl);
+    /* font-size: var(--size-4xl); */
+    font-size: var(--font-size-title);
   }
   .blog-card-container {
     margin-top: 2rem;
