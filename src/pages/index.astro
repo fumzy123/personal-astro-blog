@@ -13,15 +13,15 @@ import { useStoryblokApi } from '@storyblok/astro';
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro';
 
 // Use the StoryBlok Content Delivery API to get stories
-const storyblokApi = useStoryblokApi();
-const { data } = await storyblokApi.get('cdn/stories', {
-  version: import.meta.env.DEV ? 'draft' : 'published',
-  starts_with: 'blog/',
-});
+// const storyblokApi = useStoryblokApi();
+// const { data } = await storyblokApi.get('cdn/stories', {
+//   version: import.meta.env.DEV ? 'draft' : 'published',
+//   starts_with: 'blog/',
+// });
 
-console.log('Print stories from the Index Page component');
-const blogPost = data.stories;
-console.log(blogPost);
+// console.log('Print stories from the Index Page component');
+// const blogPost = data.stories;
+// console.log(blogPost);
 ---
 
 <BaseLayout>

@@ -21,40 +21,12 @@ import BlogPostList from '../storyblok/BlogPostList.astro';
 // Get the BlogPostList story
 const storyblokApi = useStoryblokApi();
 const { data } = await storyblokApi.get('cdn/stories/blog-feed', {});
+console.log(data.story.content.body);
 ---
 
 <BaseLayout>
   <section class="blog-list container">
     <h2 class="section-title">Blogs</h2>
-    <ul class="blog-card-container">
-      {
-        allWebDevelopmentBlogPost.map((post) => (
-          <li class="blog-card-item">
-            <a
-              class="blog-card-item-link"
-              href={`/blogs/web-development/${post.slug}`}
-            >
-              <div class="blog-card">
-                <div class="blog-image-container">
-                  <Image
-                    class="blog-image"
-                    src={post.data.imageCover}
-                    alt={post.data.imageCoverAlt}
-                  />
-                </div>
-                <div class="blog-info">
-                  <header class="blog-card-date">
-                    <FormattedDate date={post.data.pubDate} />
-                  </header>
-
-                  <h3 class="blog-title">{post.data.title}</h3>
-                </div>
-              </div>
-            </a>
-          </li>
-        ))
-      }
-    </ul>
     <BlogPostList />
   </section>
 </BaseLayout>
