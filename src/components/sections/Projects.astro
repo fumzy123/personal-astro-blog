@@ -1,0 +1,70 @@
+---
+import ProjectCard from '../ProjectCard.astro';
+---
+
+<section class="container section">
+  <h2 class="title">Projects</h2>
+
+  <div class="project-grid">
+    <ProjectCard
+      projectName="3D Virtual Museum"
+      projectDesc=`A Virtual Museum to showcase the power of using 3D Graphics on
+      the Web. Controllable lighting and interactive objects`
+      projectTechStack={['HTML/CSS', 'JavaScript', 'WebGL']}
+      projectLink="https://webgl-virtual-museum.netlify.app/"
+    />
+
+    <ProjectCard
+      projectName="Connect2"
+      projectDesc=`A Social media app that changes the way people interact online`
+      projectTechStack={['React', 'CSS', 'Vite']}
+      projectLink="https://www.figma.com/design/AxsW1mI5g6h5pjUzO7qS47/Figma-basics?node-id=1669%3A162202&t=PsnTYF8Fd7PFmUg9-1"
+    />
+
+    <ProjectCard
+      projectName="Wordle"
+      projectDesc=`A re-creation of the famous wordle game`
+      projectTechStack={['React', 'CSS']}
+      projectLink="https://wordle-react-project.vercel.app/"
+    />
+
+    <ProjectCard
+      projectName="Accounting Software Landing Page"
+      projectDesc=`A Custom Landing Page for an Accounting Business selling their software as a services`
+      projectTechStack={['React', 'CSS']}
+      projectLink="https://fumzy123.github.io/Dragons-website/"
+    />
+  </div>
+</section>
+
+<style>
+  .title {
+    /* Typography */
+    text-align: center;
+    color: var(--clr-dutch-white);
+    font-size: var(--size-3xl);
+  }
+
+  .project-grid {
+    /* Box Model */
+    margin-top: 2rem;
+
+    /* Layout */
+    display: grid;
+    /* grid-template-columns: 300px 300px 300px; */
+    /* grid-template-rows: repeat(auto-fill, 300px); */
+
+    justify-content: center;
+    gap: 2em;
+  }
+
+  /* MOBILE FIRST PRE-DEFINED MEDIA QUERIES */
+  /* md */
+  @media (min-width: 640px) {
+    .project-grid {
+      grid-template-columns: 300px 300px;
+      /* grid-template-rows: repeat(auto-fill, 300px); */
+      /* grid-template-rows: auto auto; */
+    }
+  }
+</style>

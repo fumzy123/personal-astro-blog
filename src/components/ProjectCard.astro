@@ -1,0 +1,98 @@
+---
+// Destructure Props
+const { projectName, projectDesc, projectTechStack, projectLink } =
+  Astro.props;
+---
+
+<div class="project-card">
+  <h3 class="project-name">{projectName}</h3>
+  <div class="project-content">
+    <p class="project-desc">
+      {projectDesc}
+    </p>
+    <p class="project-tech-stack">
+      {
+        projectTechStack.map((tech, index, array) => {
+          return (
+            <span class="technology">
+              {tech}
+              {index < array.length - 1 ? ', ' : ''}
+            </span>
+          );
+        })
+      }
+    </p>
+  </div>
+  <a class="project-link" href={projectLink} target="_blank"
+    >See Project</a
+  >
+</div>
+
+<style>
+  .project-card {
+    /* layout */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0.9em;
+
+    /* Box Model */
+    max-width: 300px;
+    /* height: 300px; */
+    padding: 2em;
+    border-radius: 10px;
+
+    /* Typography */
+    /* text-align: center; */
+    color: var(--clr-eerie-black);
+    /* color: white; */
+
+    /* Background */
+    background-color: var(--clr-slate400);
+    /* background-color: var(--clr-cordovan); */
+  }
+
+  .project-content {
+    /* Box model*/
+    height: 100%;
+    /* margin-top: 1rem; */
+
+    /* Layout */
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+  }
+
+  .project-name {
+    width: fit-content;
+  }
+
+  .project-desc {
+    /* text-align: center; */
+    max-width: 45ch;
+  }
+
+  .project-tech-stack {
+    width: fit-content;
+    /* margin-top: 1rem; */
+  }
+
+  .technology {
+    color: var(--clr-slate600);
+    font-weight: bold;
+    /* text-shadow: 1px 1px 2px var(--clr-steel-blue); */
+  }
+
+  a {
+    /* Box Model */
+    max-width: fit-content;
+    padding: 0.5em 1em;
+    border-radius: 10px;
+
+    /* Typography */
+    color: var(--clr-slate400);
+    text-decoration: none;
+
+    background-color: var(--clr-eerie-black);
+  }
+</style>

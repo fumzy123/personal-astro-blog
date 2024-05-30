@@ -5,8 +5,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 // Import Components
 import Hero from '../components/sections/Hero.astro';
 import Skills from '../components/sections/Skills.astro';
-import Footer from '../components/sections/Footer.astro';
+import Socials from '../components/sections/Socials.astro';
 import Technologies from '../components/Technologies.astro';
+import Projects from '../components/sections/Projects.astro';
 
 // StoryBlok
 import { useStoryblokApi } from '@storyblok/astro';
@@ -26,7 +27,8 @@ import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro';
 
 <BaseLayout>
   <Hero />
-  <Skills />
-  <Technologies />
-  <Footer />
+  <Projects />
+  <Socials />
+  <!-- <Skills /> -->
+  <!-- <Technologies /> -->
 </BaseLayout>

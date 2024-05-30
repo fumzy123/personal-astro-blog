@@ -21,17 +21,11 @@ const currentPath = Astro.url.pathname;
   <p class="header__logo">FUMEZ</p>
 
   <!-- Desktop Navigation Menu -->
-  <nav class="header__menu">
+  <!-- <nav class="header__menu">
     <HeaderLink client:load href="/" currentPath={currentPath}>
       Home
     </HeaderLink>
-    <!-- <HeaderLink
-      client:load
-      href="/projects/"
-      currentPath={currentPath}
-    >
-      Projects
-    </HeaderLink> -->
+
     <HeaderLink
       client:load
       href="/blog-feed/"
@@ -42,10 +36,10 @@ const currentPath = Astro.url.pathname;
     <HeaderLink client:load href="/shop/" currentPath={currentPath}>
       Shop
     </HeaderLink>
-  </nav>
+  </nav> -->
 
   <!-- Embed the `menu-icon` icon from `@iconify-json/mdi` -->
-  <button class="header__menu-icon"><Icon name="mdi:menu" /></button>
+  <!-- <button class="header__menu-icon"><Icon name="mdi:menu" /></button> -->
 
   <!-- <div class="header__socials">
         <a class="header__social-media" href="http://www.youtube.com/@FumezCreates" target="_blank"></a>
@@ -54,7 +48,7 @@ const currentPath = Astro.url.pathname;
 </header>
 
 <!-- Mobile Navigation -->
-<div class="mobile-nav inactive">
+<!-- <div class="mobile-nav inactive">
   <nav>
     <ul class="mobile-nav__menu">
       <li>
@@ -62,11 +56,7 @@ const currentPath = Astro.url.pathname;
           >Home</MobileNavLink
         >
       </li>
-      <!-- <li>
-        <MobileNavLink className="mobile-nav__link" href="/projects/"
-          >Projects</MobileNavLink
-        >
-      </li> -->
+
       <li>
         <MobileNavLink className="mobile-nav__link" href="/blog-feed/"
           >Blog</MobileNavLink
@@ -79,7 +69,7 @@ const currentPath = Astro.url.pathname;
       </li>
     </ul>
   </nav>
-</div>
+</div> -->
 
 <!-- Style Header Section -->
 <style>
