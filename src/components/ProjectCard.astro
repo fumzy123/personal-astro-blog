@@ -55,12 +55,14 @@ const { projectName, projectDesc, projectTechStack, projectLink } =
   .project-content {
     /* Box model*/
     height: 100%;
-    /* margin-top: 1rem; */
 
     /* Layout */
     display: flex;
     flex-direction: column;
     gap: 0.5em;
+
+    /* Typography */
+    font-size: 0.875rem;
   }
 
   .project-name {
@@ -94,5 +96,12 @@ const { projectName, projectDesc, projectTechStack, projectLink } =
     text-decoration: none;
 
     background-color: var(--clr-eerie-black);
+  }
+
+  /* xs */
+  @media (min-width: 475px) {
+    .project-content {
+      font-size: 1rem;
+    }
   }
 </style>
