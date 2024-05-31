@@ -43,13 +43,17 @@ const { projectName, projectDesc, projectTechStack, projectLink } =
     border-radius: 10px;
 
     /* Typography */
-    /* text-align: center; */
     color: var(--clr-eerie-black);
-    /* color: white; */
 
     /* Background */
     background-color: var(--clr-slate400);
-    /* background-color: var(--clr-cordovan); */
+
+    /* Transition */
+    transition: background-color 0.25s ease;
+  }
+
+  .project-card:hover {
+    background-color: var(--clr-dutch-white);
   }
 
   .project-content {

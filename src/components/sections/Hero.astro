@@ -55,7 +55,7 @@
     /* Box Model */
     max-width: 60ch; /* Max width is super useful because it allows for responsiveness
     It means the html element can reduce and increase in size but it cannot go beyond the maximum width.*/
-    margin: 1em 0;
+    margin-top: 1em;
 
     /* Typography */
     font-size: var(--size-sm);
@@ -98,6 +98,7 @@
   @media (min-width: 1024px) {
     .hero {
       flex-direction: row-reverse;
+      align-items: end;
       text-align: left;
     }
 
