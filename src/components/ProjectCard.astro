@@ -1,10 +1,17 @@
 ---
 // Destructure Props
-const { projectName, projectDesc, projectTechStack, projectLink } =
-  Astro.props;
+const {
+  projectName,
+  projectDesc,
+  projectTechStack,
+  projectLink,
+  ready = true,
+} = Astro.props;
+
+const projectReady = ready == true ? 'project-ready' : '';
 ---
 
-<div class="project-card">
+<div class=`project-card ${projectReady}`>
   <h3 class="project-name">{projectName}</h3>
   <div class="project-content">
     <p class="project-desc">
@@ -24,7 +31,7 @@ const { projectName, projectDesc, projectTechStack, projectLink } =
     </p>
   </div>
   <a class="project-link" href={projectLink} target="_blank"
-    >See Project</a
+    >{ready === true ? `See Project` : `In-Progress`}</a
   >
 </div>
 
@@ -52,7 +59,7 @@ const { projectName, projectDesc, projectTechStack, projectLink } =
     transition: background-color 0.25s ease;
   }
 
-  .project-card:hover {
+  .project-ready:hover {
     background-color: var(--clr-dutch-white);
   }
 
