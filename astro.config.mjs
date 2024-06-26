@@ -29,6 +29,7 @@ export default defineConfig({
       components: {
         blogPost: 'storyblok/BlogPost',
         blogPostList: 'storyblok/BlogPostList',
+        page: 'storyblok/Page',
       },
       apiOptions: {
         region: 'ca',

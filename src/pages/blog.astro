@@ -1,0 +1,25 @@
+---
+// Import Baselayout
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+// StoryBlok
+import { useStoryblokApi } from '@storyblok/astro';
+import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro';
+
+// Get the Blog Home Page Story
+// This blog story just holds a Nestable Blok called BlogPostList
+const storyblokApi = useStoryblokApi();
+const { data } = await storyblokApi.get('cdn/stories/blog-home', {
+  version: import.meta.env.DEV ? 'draft' : 'published',
+});
+
+const content = data.story.content;
+console.log(content);
+---
+
+<BaseLayout>
+  <section class="blog container">
+    <h1>Blog</h1>
+    <StoryblokComponent blok={content} />
+  </section>
+</BaseLayout>

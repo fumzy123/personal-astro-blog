@@ -10,68 +10,54 @@ import { Icon } from 'astro-icon/components';
 
 // Import Smaller Component pieces
 import HeaderLink from '../react/HeaderLink.jsx';
-import MobileNavLink from '../MobileNavLink.astro';
+// import MobileNavLink from '../MobileNavLink.astro';
+import MobileNavLink from '../react/MobileNavLink.jsx';
 
+// Data
 const { className } = Astro.props;
 const currentPath = Astro.url.pathname;
+const navItems = [
+  {
+    title: 'Home',
+    href: '/',
+  },
+  {
+    title: 'Blog',
+    href: '/blog',
+  },
+];
 ---
 
 <!-- Header Section -->
 <header class=`header container`>
   <p class="header__logo">FUMEZ</p>
 
-  <!-- Desktop Navigation Menu -->
-  <!-- <nav class="header__menu">
-    <HeaderLink client:load href="/" currentPath={currentPath}>
-      Home
-    </HeaderLink>
-
-    <HeaderLink
-      client:load
-      href="/blog-feed/"
-      currentPath={currentPath}
-    >
-      Blog
-    </HeaderLink>
-    <HeaderLink client:load href="/shop/" currentPath={currentPath}>
-      Shop
-    </HeaderLink>
-  </nav> -->
-
   <!-- Embed the `menu-icon` icon from `@iconify-json/mdi` -->
-  <!-- <button class="header__menu-icon"><Icon name="mdi:menu" /></button> -->
+  <button class="header__menu-bar" aria-label="menu button"
+    ><Icon name="mdi:menu" aria-hidden="true" /></button
+  >
 
-  <!-- <div class="header__socials">
-        <a class="header__social-media" href="http://www.youtube.com/@FumezCreates" target="_blank"></a>
-        <a class="header__social-media" href="https://github.com/fumzy123" target="_blank"></a>
-    </div> -->
+  <!-- Desktop Navigation Menu -->
+  <nav class="header__menu">
+    {
+      navItems.map((item) => {
+        return (
+          <HeaderLink href={item.href} currentPath={currentPath}>
+            {item.title}
+          </HeaderLink>
+        );
+      })
+    }
+  </nav>
 </header>
 
 <!-- Mobile Navigation -->
-<!-- <div class="mobile-nav inactive">
-  <nav>
-    <ul class="mobile-nav__menu">
-      <li>
-        <MobileNavLink className="mobile-nav__link" href="/"
-          >Home</MobileNavLink
-        >
-      </li>
+<MobileNavLink
+  client:load
+  navItems={navItems}
+  currentPath={currentPath}
+/>
 
-      <li>
-        <MobileNavLink className="mobile-nav__link" href="/blog-feed/"
-          >Blog</MobileNavLink
-        >
-      </li>
-      <li>
-        <MobileNavLink className="mobile-nav__link" href="/shop/"
-          >Shop</MobileNavLink
-        >
-      </li>
-    </ul>
-  </nav>
-</div> -->
-
-<!-- Style Header Section -->
 <style>
   .header {
     /* Layout */
@@ -123,53 +109,6 @@ const currentPath = Astro.url.pathname;
     color: #f3dfbfff;
   }
 
-  .mobile-nav {
-    /* Box Model */
-    /* border: 2px solid green; */
-    width: 100%;
-    height: 100%;
-
-    /* Position */
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 999;
-
-    /* Layout of Elements: Center them*/
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-
-    /* Background */
-    background-color: var(--clr-eerie-black);
-  }
-
-  .mobile-nav__menu {
-    /* List */
-    list-style: none;
-
-    /* Layout */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .mobile-nav__link {
-    /* Typography */
-    font-size: var(--size-lg);
-    font-weight: 600;
-    color: white;
-    letter-spacing: -0.05em;
-    text-decoration: none;
-  }
-
-  .inactive {
-    display: none;
-  }
-
   /* MOBILE FIRST PRE-DEFINED MEDIA QUERIES */
   /* xs */
   /* @media (min-width: 475px) {} */
@@ -192,7 +131,7 @@ const currentPath = Astro.url.pathname;
       padding: 0;
     }
 
-    .header__menu-icon {
+    .header__menu-bar {
       display: none;
     }
   }
@@ -210,7 +149,7 @@ const currentPath = Astro.url.pathname;
 
 <script>
   // Select the Menu Icon
-  const headerBtn = document.querySelector('.header__menu-icon');
+  const headerBtn = document.querySelector('.header__menu-bar');
 
   // Select the Mobile Navigation div
   const mobileNav = document.querySelector(

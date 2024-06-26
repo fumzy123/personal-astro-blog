@@ -15,16 +15,16 @@ const { data } = await storyblokApi.get('cdn/stories/', {
   content_type: 'blogPost',
 });
 
-console.log(data.stories[0]);
+// console.log(data.stories[0]);
 
 //  Get all the Blog Card info from the Post
 const posts = data.stories.map((story) => {
   return {
+    image: story.content.image,
     title: story.content.title,
     date: new Date(story.published_at),
-    image: story.content.image,
-    teaser: story.content.teaser,
-    slug: story.slug.toString(),
+    desc: story.content.description,
+    slug: story.full_slug,
   };
 });
 

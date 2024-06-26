@@ -1,5 +1,5 @@
 // import React from 'react';
-import '../../styles/component-styling/HeaderLink.css';
+import '@styles/headerlink.css';
 
 function HeaderLink({ children, href, currentPath }) {
   // console.log(` The current Path is: ${currentPath}`);
