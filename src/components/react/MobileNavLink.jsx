@@ -5,6 +5,8 @@ import clsx from 'clsx';
 import styles from '@styles/mobilenav.css';
 
 function MobileNavLink({ navItems, currentPath }) {
+  console.log(navItems);
+
   // Render Mobile Nav
   return (
     <nav class="mobile-nav inactive">
