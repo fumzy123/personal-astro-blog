@@ -1,13 +1,16 @@
 ---
+import BaseLayout from '@layouts/BaseLayout.astro';
 import { storyblokEditable, renderRichText } from '@storyblok/astro';
 
 const { blok } = Astro.props;
 const renderedRichContent = renderRichText(blok.content);
 ---
 
-<article {...storyblokEditable(blok)}>
-  <img alt={blok.image.alt} src={`${blok.image.filename}`} />
-  <h1>{blok.title}</h1>
-  <p>{blok.teaser}</p>
-  <Fragment set:html={renderedRichContent} />
-</article>
+<BaseLayout>
+  <article class="container" {...storyblokEditable(blok)}>
+    <!-- <img alt={blok.image.alt} src={`${blok.image.filename}`} /> -->
+    <h3>{blok.title}</h3>
+    <p>{blok.teaser}</p>
+    <Fragment set:html={renderedRichContent} />
+  </article>
+</BaseLayout>

@@ -19,24 +19,19 @@ import { ViewTransitions } from 'astro:transitions';
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>Fumez</title>
-    <!-- <ViewTransitions /> -->
+    <ViewTransitions />
   </head>
 
-  <body>
+  <body transition:animate="slide">
     <Header />
     <slot />
-    <style>
-      .slot {
-        margin-top: 2rem;
-      }
+  </body><style>
+    .slot {
+      margin-top: 2rem;
+    }
 
-      .footer {
-        margin-top: 2rem;
-      }
-    </style>
-
-    <!-- <style is:global>
-	
-</style> -->
-  </body>
+    .footer {
+      margin-top: 2rem;
+    }
+  </style>
 </html>

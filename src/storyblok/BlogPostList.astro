@@ -35,7 +35,7 @@ const { blok } = Astro.props;
   {
     posts.map((post) => (
       <li class="blog-card-item">
-        <a class="blog-card-item-link" href={`/blog/${post.slug}`}>
+        <a class="blog-card-item-link" href={`/${post.slug}`}>
           <div class="blog-card">
             {/* <div class="blog-image-container">
               <img

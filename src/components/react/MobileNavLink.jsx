@@ -13,7 +13,7 @@ function MobileNavLink({ navItems, currentPath }) {
       <ul class="mobile-nav__menu">
         {navItems?.map((item) => {
           return (
-            <li>
+            <li key={item.href}>
               <a
                 className={clsx('mobile-nav__item', {
                   'mobile-nav__item--active':
