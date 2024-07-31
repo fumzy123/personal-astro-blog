@@ -39,16 +39,22 @@ const currentPath = Astro.url.pathname;
   </nav> -->
 
   <!-- Embed the `menu-icon` icon from `@iconify-json/mdi` -->
-  <!-- <button class="header__menu-icon"><Icon name="mdi:menu" /></button> -->
+  <button class="header__menu-icon"><Icon name="mdi:menu" /></button>
 
   <!-- <div class="header__socials">
-        <a class="header__social-media" href="http://www.youtube.com/@FumezCreates" target="_blank"></a>
-        <a class="header__social-media" href="https://github.com/fumzy123" target="_blank"></a>
-    </div> -->
+    <a
+      class="header__social-media"
+      href="http://www.youtube.com/@FumezCreates"
+      target="_blank"></a>
+    <a
+      class="header__social-media"
+      href="https://github.com/fumzy123"
+      target="_blank"></a>
+  </div> -->
 </header>
 
 <!-- Mobile Navigation -->
-<!-- <div class="mobile-nav inactive">
+<div class="mobile-nav inactive">
   <nav>
     <ul class="mobile-nav__menu">
       <li>
@@ -69,7 +75,7 @@ const currentPath = Astro.url.pathname;
       </li>
     </ul>
   </nav>
-</div> -->
+</div>
 
 <!-- Style Header Section -->
 <style>
@@ -77,14 +83,21 @@ const currentPath = Astro.url.pathname;
     /* Layout */
     display: flex;
     flex-direction: row;
+    /* justify-content: space-evenly; */
 
     /** Box Model **/
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 
     /* Position */
-    position: relative;
+    position: sticky;
+    top: 0;
     z-index: 9999;
+
+    /* Background  */
+    /* background-color: var(--clr-eerie-black); */
+    background-color: rgba(23, 24, 28, 0.5);
+    backdrop-filter: blur(10px);
   }
 
   .header__logo {
@@ -100,7 +113,8 @@ const currentPath = Astro.url.pathname;
     /* flex: 1; */
 
     /* Typography  */
-    /* font-size: 1rem; */
+    font-size: 1rem;
+    text-align: right;
   }
 
   /*  */
