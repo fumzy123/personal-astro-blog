@@ -1,16 +1,24 @@
 /** Globally Accessible CSS Variables **/
 :root {
-  /* Colors */
-  /* Dominant */
+  /********** Colors ***********/
+
+  /* Primary, Background */
   --clr-eerie-black: #17181cff;
 
-  /* Complimentary */
+  /* Accent, Brand Color */
+  --clr-dutch-white: #f3dfbf;
+  --clr-jet: #2b2824;
+
+  /* Complimentary, Typography */
+  --clr-columbia-blue: #bfd3f3;
+  --clr-cadet-gray: #8794aa;
+  --clr-payne-gray: #535a67;
+  --clr-raisin-black: #24262b;
+
+  /* Extra Colors */
   --clr-slate600: #475569;
   --clr-slate400: #94a3b8;
   --clr-shade-dutch-white: rgb(121, 111, 95);
-
-  /* Accent */
-  --clr-dutch-white: #f3dfbfff;
   --clr-cordovan: #8e4a49ff;
   --clr-steel-blue: #2d82b7ff;
 
