@@ -39,12 +39,14 @@
   .hero__img {
     /* Box Model for Image */
     width: 18.75rem;
+    max-width: 480px;
     border: 2px solid var(--clr-dutch-white);
     border-radius: 20px;
   }
 
   .hero__title {
     /* Typography  */
+    font-family: 'Lusitana';
     color: var(--clr-dutch-white);
     font-size: var(--size-4xl);
     letter-spacing: -0.05em;
@@ -128,7 +130,11 @@
   }
 
   /* xl */
-  /* @media (min-width: 1280px) {} */
+  @media (min-width: 1280px) {
+    .hero {
+      align-items: center;
+    }
+  }
 
   /* 2xl */
   /* @media (min-width: 1536px) {} */

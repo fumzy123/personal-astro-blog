@@ -1,0 +1,64 @@
+---
+// 1. Import Content Collection utility
+// import { getCollection } from 'astro:content';
+
+// 1. Import StoryBlokApi
+import { useStoryblokApi } from '@storyblok/astro';
+import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro';
+
+// 2. Import the Layout for
+import BlogPostLayout from '@layouts/BaseLayout.astro';
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+// 3. Generate Static Pages for Each blog post with the getStaticPaths Function
+// This is Dynamic Routing. This Function returns an Array of Objects.
+// Each object has a params property
+// This property tells astro the value of each parameter that should have a generated URL.
+// These paths are then pre-rendered at build time.
+// The `blog_post_slug` is a parameter that will be replaced by the value that the user types.
+// If the value matches any of our predefined values for our parameter a page is shown to the user
+// Else the user gets a 404 page.
+// Form more info on Dynamic Routing check (https://docs.astro.build/en/guides/routing/)
+
+// Astro is creating a page Route
+// Because this is SSG. Dynamic routes are created on build time.
+export async function getStaticPaths() {
+  // Get all the BlogPost in StoryBlok Space
+  const sbApi = useStoryblokApi();
+  const { data } = await sbApi.get('cdn/stories', {
+    content_type: 'blogPost',
+    version: import.meta.env.DEV ? 'draft' : 'published',
+  });
+
+  const stories = Object.values(data.stories);
+
+  // Map the parameter to the slug of all the blogpost in our StoryBlok Space
+  return stories.map((story) => {
+    return {
+      params: { blog_post_slug: story.slug },
+    };
+  });
+}
+
+// Get the Value of Params
+const { blog_post_slug } = Astro.params;
+
+// Fetch the Blog Post from our StoryBlok Space
+const sbApi = useStoryblokApi();
+const { data } = await sbApi.get(
+  `cdn/stories/blog/${blog_post_slug}`,
+  {
+    version: import.meta.env.DEV ? 'draft' : 'published',
+  }
+);
+
+const story = data.story;
+console.log('This is our story---------------------------');
+console.log(story);
+---
+
+<BaseLayout>
+  <section class="container">
+    <StoryblokComponent blok={story.content} />
+  </section>
+</BaseLayout>

@@ -3,7 +3,9 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 // Import a Small Component
-import FormattedDate from '../components/shared/FormattedDate.astro';
+import FormattedDate from '@components/shared/FormattedDate.astro';
+import BlogList from '@components/react/BlogList.jsx';
+import BlogPostList from '../storyblok/BlogPostList.astro';
 
 // Import Collections Utility and Get Blog Post
 import { getCollection } from 'astro:content';
@@ -15,34 +17,47 @@ import AllArticles from '../storyblok/BlogPostList.astro';
 
 // StoryBlok
 import { useStoryblokApi } from '@storyblok/astro';
-import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro';
-import BlogPostList from '../storyblok/BlogPostList.astro';
+// import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro';
 
 // Get the BlogPostList story
 const storyblokApi = useStoryblokApi();
 const { data } = await storyblokApi.get('cdn/stories/blog-feed', {});
 console.log(data.story.content.body);
+
+// Categories
+const blogCategory = [
+  'All',
+  '3D',
+  'Web Design',
+  'Web Development',
+  'Motion Design',
+];
 ---
 
 <BaseLayout>
   <section class="blog-list container">
-    <h2 class="section-title">Blogs</h2>
-    <BlogPostList />
+    <h1 class="section-title">Blog</h1>
+    <BlogList blogCategory={blogCategory} />
+    <!-- <BlogPostList /> -->
   </section>
 </BaseLayout>
 
 <style>
   .section-title {
-    /* font-size: var(--size-4xl); */
-    font-size: var(--font-size-title);
-  }
-  .blog-card-container {
     margin-top: 2rem;
 
+    /* font-size: var(--size-4xl); */
+    font-family: 'Lusitana';
+    font-size: var(--font-size-subtitle);
+    color: var(--clr-dutch-white);
+  }
+
+  .blog-card-container {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
+
   .blog-card-item {
     list-style: none;
 

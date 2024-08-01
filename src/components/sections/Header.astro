@@ -21,7 +21,7 @@ const currentPath = Astro.url.pathname;
   <p class="header__logo">FUMEZ</p>
 
   <!-- Desktop Navigation Menu -->
-  <!-- <nav class="header__menu">
+  <nav class="header__menu">
     <HeaderLink client:load href="/" currentPath={currentPath}>
       Home
     </HeaderLink>
@@ -33,10 +33,10 @@ const currentPath = Astro.url.pathname;
     >
       Blog
     </HeaderLink>
-    <HeaderLink client:load href="/shop/" currentPath={currentPath}>
+    <!-- <HeaderLink client:load href="/shop/" currentPath={currentPath}>
       Shop
-    </HeaderLink>
-  </nav> -->
+    </HeaderLink> -->
+  </nav>
 
   <!-- Embed the `menu-icon` icon from `@iconify-json/mdi` -->
   <button class="header__menu-icon"><Icon name="mdi:menu" /></button>
@@ -95,13 +95,18 @@ const currentPath = Astro.url.pathname;
     z-index: 9999;
 
     /* Background  */
-    /* background-color: var(--clr-eerie-black); */
     background-color: rgba(23, 24, 28, 0.5);
     backdrop-filter: blur(10px);
+
+    /* Typography */
+    color: var(--clr-columbia-blue);
   }
 
   .header__logo {
     flex: 1;
+    /* Typography */
+    font-size: var(--font-size-small);
+    font-weight: bold;
   }
 
   .header__menu {

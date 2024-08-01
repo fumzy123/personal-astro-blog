@@ -1,13 +1,90 @@
 ---
+import { Icon } from 'astro-icon/components';
+
 import { storyblokEditable, renderRichText } from '@storyblok/astro';
 
 const { blok } = Astro.props;
 const renderedRichContent = renderRichText(blok.content);
 ---
 
-<article {...storyblokEditable(blok)}>
-  <img alt={blok.image.alt} src={`${blok.image.filename}`} />
-  <h1>{blok.title}</h1>
-  <p>{blok.teaser}</p>
+<article class="article" {...storyblokEditable(blok)}>
+  <a class="back-btn" href=`/blog-feed`>
+    <Icon name="mdi:arrow-left" />GO BACK</a
+  >
+  <h1 class="blog-title">{blok.title}</h1>
+  <div class="blog-meta-data">
+    <div class="blog-date-time-container">
+      <p class="blog-date"><span>Date:</span> Jul 31st, 2024.</p>
+      <p class="blog-read-time"><span>Read:</span> 5 min</p>
+    </div>
+    <p class="blog-category">Motion Design</p>
+  </div>
+  <img
+    class="blog-img"
+    alt={blok.image.alt}
+    src={`${blok.image.filename}`}
+  />
+  <!-- <p>{blok.teaser}</p> -->
   <Fragment set:html={renderedRichContent} />
 </article>
+
+<style>
+  .article {
+    margin-top: 2rem;
+  }
+
+  .back-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    /* Typography */
+    color: var(--clr-payne-gray);
+    text-decoration: none;
+  }
+
+  .blog-title {
+    /* Typography */
+    font-family: 'Lusitana';
+    font-size: var(--font-size-heading);
+    color: var(--clr-columbia-blue);
+
+    /* Box Model */
+    max-width: 360px;
+    margin-top: 2rem;
+  }
+
+  .blog-meta-data {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    font-size: var(--font-size-caption);
+    color: var(--clr-cadet-gray);
+
+    margin-top: 2rem;
+  }
+
+  .blog-date-time-container {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .blog-category {
+    /* Box-Sizing */
+    padding-inline: 0.5rem;
+    border-radius: 32px;
+    white-space: nowrap;
+
+    /* Background */
+    background-color: var(--clr-raisin-black);
+  }
+
+  .blog-img {
+    margin-top: 1rem;
+    border-radius: 8px;
+  }
+
+  span {
+    color: var(--clr-columbia-blue);
+  }
+</style>

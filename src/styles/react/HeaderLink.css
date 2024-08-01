@@ -7,7 +7,7 @@
   /* Typography */
   font-size: var(--size-xs);
   font-weight: 600;
-  color: white;
+  color: var(--clr-columbia-blue);
   text-decoration: none;
   letter-spacing: -0.05em;
 }
